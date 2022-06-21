@@ -1,9 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\MSI\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\MSI\\.nuget\\packages",
-      "D:\\Visual studio składniki narzędzia i zestawy SDK\\NuGetPackages"
-    ]
-  }
-}
