@@ -1,4 +1,3 @@
-C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.AssemblyReference.cache
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.CoreCompileInputs.cache
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\Skilldemy.dll.config
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\Skilldemy.dll

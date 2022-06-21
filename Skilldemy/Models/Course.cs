@@ -19,5 +19,15 @@ namespace Skilldemy.Models
         public int OwnerId { get; set; }
 
         public List<Tag> Tags { get; set; }
+
+        public double Price { get; set; }
+
+        public double Discount { get; set; }
+
+        public double Rating { get; set; }
+
+        public int Reviews { get; set; }
+
+        public string Difficulty { get; set; }
     }
 }
