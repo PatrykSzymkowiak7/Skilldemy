@@ -9,7 +9,7 @@ namespace Skilldemy.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public List<Course> InitCourses()
         {
             Tag tag1 = new Tag
             {
@@ -52,7 +52,17 @@ namespace Skilldemy.Controllers
             List<Course> courses = new List<Course>();
             courses.Add(course);
 
-            return View(courses);
+            return courses;
+        }
+
+        public ActionResult Index()
+        {
+            return View(InitCourses());
+        }
+
+        public ActionResult Course()
+        {
+            return View(InitCourses());
         }
 
         /*

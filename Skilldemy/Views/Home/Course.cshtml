@@ -1,0 +1,15 @@
+﻿@model List<Skilldemy.Models.Course>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{var course = Model.FirstOrDefault(); }
+<div class="course-availables">
+    <h2>@course.Title</h2>
+</div>
+
+<video controls="controls" autoplay="autoplay">
+    <source src="~/Videos/gordon.mp4" type="video/mp4" />
+</video>
