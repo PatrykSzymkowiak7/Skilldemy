@@ -111,3 +111,4 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\Microsoft.CodeDom.Providers.DotNetC
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.CopyComplete
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.pdb
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.AssemblyReference.cache
