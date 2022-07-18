@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Skilldemy.Models
 {
@@ -33,7 +34,7 @@ namespace Skilldemy.Models
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Remember this browser?")]
+        [Display(Name = "Zapamiętać tą przeglądarkę?")]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
@@ -55,10 +56,10 @@ namespace Skilldemy.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Zapamiętaj mnie?")]
         public bool RememberMe { get; set; }
     }
 
@@ -70,15 +71,45 @@ namespace Skilldemy.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} musi mieć przynajmniej {2} znaków", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Potwierdź hasło")]
+        [Compare("Password", ErrorMessage = "Podane hasła różnią się")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Index(IsUnique = true)]
+        [Display(Name = "Nazwa użytkownika")]
+        public string UserName { get; set; }
+
+        [Required]
+        [CreditCard]
+        [Display(Name = "Numer konta bankowego")]
+        public string BankAccountNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Ulica")]
+        public string Street { get; set; }
+
+        [Required]
+        [Display(Name = "Numer domu")]
+        public string HouseNumber { get; set; }
+
+        [Display(Name = "Numer mieszkania")]
+        public string FlatNumber { get; set; }
+
+        [Required]
+        [DataType(DataType.PostalCode)]
+        [Display(Name = "Kod pocztowy")]
+        public string PostalCode { get; set; }
+
+        [Required]
+        [Display(Name = "Miejscowość")]
+        public string Town { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -89,14 +120,14 @@ namespace Skilldemy.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} musi mieć przynajmniej {2} znaków", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Podane hasła różnią się")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

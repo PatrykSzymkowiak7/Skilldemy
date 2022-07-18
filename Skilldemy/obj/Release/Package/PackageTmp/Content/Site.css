@@ -1,0 +1,79 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.course-availables {
+    height: 10%;
+    width: 80%;
+    margin: 0px auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: left;
+}
+
+.course-wrapper {
+    height: 10%;
+    width: 80%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.course-left {
+    float: left;
+}
+
+.course-right {
+    overflow: hidden;
+}
+
+.course-title {
+    padding:10px;
+}
+
+.main-course-wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.main-course-left {
+    float: left;
+    height:50%;
+    width:50%;
+}
+
+.main-course-right {
+    overflow: hidden;
+    height: 50%;
+    width: 50%;
+    text-align:right;
+}
+
+.main-course-subsection{
+    display:none;
+}

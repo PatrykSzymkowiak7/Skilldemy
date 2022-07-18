@@ -41,7 +41,7 @@ namespace Skilldemy.Controllers
                 Title = "To jest przykładowy tytuł",
                 Description = "To jest przykładowy opis kursu",
                 OwnerId = 1,
-                Tags = tags,
+                //Tags = tags,
                 Price = 49.99,
                 Discount = 0,
                 Rating = 5.00,

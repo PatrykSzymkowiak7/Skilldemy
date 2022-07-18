@@ -9,8 +9,6 @@ namespace Skilldemy.Models
     public class Tag
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Please enter tag name")]
         public string Name { get; set; }
     }
 }

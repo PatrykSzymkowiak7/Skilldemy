@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using MySql.Data.EntityFramework;
 
 namespace Skilldemy.Models
 {
@@ -10,15 +12,11 @@ namespace Skilldemy.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Please enter course's title")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Please enter course's description")]
         public string Description { get; set; }
 
         public int OwnerId { get; set; }
-
-        public List<Tag> Tags { get; set; }
 
         public double Price { get; set; }
 
@@ -29,5 +27,6 @@ namespace Skilldemy.Models
         public int Reviews { get; set; }
 
         public string Difficulty { get; set; }
+        public int temp { get; set; }
     }
 }
