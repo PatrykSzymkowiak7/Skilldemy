@@ -250,6 +250,10 @@
     <Compile Include="Migrations\202207170921110_UserChanges.designer.cs">
       <DependentUpon>202207170921110_UserChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207181814295_AnotherUserModelChanges.cs" />
+    <Compile Include="Migrations\202207181814295_AnotherUserModelChanges.designer.cs">
+      <DependentUpon>202207181814295_AnotherUserModelChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -321,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UserFiles\" />
     <Folder Include="Views\Course\" />
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207170921110_UserChanges.resx">
       <DependentUpon>202207170921110_UserChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207181814295_AnotherUserModelChanges.resx">
+      <DependentUpon>202207181814295_AnotherUserModelChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
