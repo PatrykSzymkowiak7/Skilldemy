@@ -12,10 +12,12 @@ namespace Skilldemy.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
         public string Description { get; set; }
 
+        [Required]
         public int OwnerId { get; set; }
 
         public double Price { get; set; }
@@ -27,6 +29,9 @@ namespace Skilldemy.Models
         public int Reviews { get; set; }
 
         public string Difficulty { get; set; }
-        public int temp { get; set; }
+
+        public string HtmlAndJs { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

@@ -333,7 +333,7 @@ namespace Skilldemy.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -384,6 +384,20 @@ namespace Skilldemy.Controllers
             Error
         }
 
-#endregion
+        #endregion
+
+        #region Course section 
+
+        public ActionResult NewCourse()
+        {
+            return RedirectToAction("NewCourse", "Course", new { area = "" });
+        }
+
+        public ActionResult EditCourse()
+        {
+            return RedirectToAction("EditCourse", "Course", new { area = "" });
+        }
+
+        #endregion
     }
 }

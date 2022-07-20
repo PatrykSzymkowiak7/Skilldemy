@@ -50,9 +50,8 @@ namespace Skilldemy.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Nazwa użytkownika")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -87,7 +86,6 @@ namespace Skilldemy.Models
         public string UserName { get; set; }
 
         [Required]
-        [CreditCard]
         [Display(Name = "Numer konta bankowego")]
         public string BankAccountNumber { get; set; }
 
