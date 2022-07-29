@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/skilldemydbserver/databases/Skilldemy_db",
-      "type": "mssql.azure",
+      "resourceId": null,
+      "type": "mssql.onprem",
       "connectionId": "ConnectionStrings:DefaultConnection",
       "secretStore": "AzureAppSettings"
     }

@@ -9,6 +9,11 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
+        <dt>Moje dane:</dt>
+        <dd>
+        [
+        @Html.ActionLink("Zmień moje dane", "EditAccount")
+        ]</dd>
         <dt>Hasło:</dt>
         <dd>
             [
@@ -25,7 +30,7 @@
         <dt>Kursy:</dt>
         <dd>
             [
-            @Html.ActionLink("Utwórz kurs", "NewCourse")
+            @Html.ActionLink("Utwórz kurs", "CreateCourse")
             ]
         </dd>
         <dd>

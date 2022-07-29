@@ -93,7 +93,6 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\System.Web.WebPages.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\System.Web.WebPages.Razor.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\Ubiety.Dns.Core.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\WebGrease.dll
-C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\Zstandard.Net.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\EntityFramework.xml
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\EntityFramework.SqlServer.xml
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\Google.Protobuf.pdb
@@ -140,3 +139,8 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.csproj.CoreCompil
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.csproj.CopyComplete
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.pdb
+C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\ZstdNet.dll
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.Migrations.TestMigration.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.Migrations.UserChanges.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.Migrations.AnotherUserModelChanges.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Release\Skilldemy.Migrations.UserModel.resources

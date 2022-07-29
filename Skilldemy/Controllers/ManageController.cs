@@ -15,15 +15,18 @@ namespace Skilldemy.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _dbContext;
 
         public ManageController()
         {
+            _dbContext = new ApplicationDbContext();
         }
 
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationDbContext dbContext)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _dbContext = dbContext;
         }
 
         public ApplicationSignInManager SignInManager
@@ -32,9 +35,9 @@ namespace Skilldemy.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -55,12 +58,12 @@ namespace Skilldemy.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                message == ManageMessageId.ChangePasswordSuccess ? "Twoje hasło zostało zmienione."
+                : message == ManageMessageId.SetPasswordSuccess ? "Twoje hasło zostało ustawione."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.Error ? "Wystąpił błąd podczas operacji."
+                : message == ManageMessageId.AddPhoneSuccess ? "Numer telefonu został dodany."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Numer telefonu został usunięty."
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -387,10 +390,10 @@ namespace Skilldemy.Controllers
         #endregion
 
         #region Course section 
-
-        public ActionResult NewCourse()
+        // Logic happens in CourseController, these methods are only redirecting
+        public ActionResult CreateCourse()
         {
-            return RedirectToAction("NewCourse", "Course", new { area = "" });
+            return RedirectToAction("CreateCourse", "Course", new { area = "" });
         }
 
         public ActionResult EditCourse()
@@ -399,5 +402,46 @@ namespace Skilldemy.Controllers
         }
 
         #endregion
+
+        //EditAccount Get
+        public ActionResult EditAccount()
+        {
+            var currLoggedUser = User.Identity.GetUserId();
+
+            var user = _dbContext.Users.FirstOrDefault(u => u.Id == currLoggedUser);
+            var viewModel = new RegisterViewModel()
+            {
+                Email = user.Email,
+                BankAccountNumber = user.BankAccountNumber,
+                Town = user.Town,
+                Street = user.Street,
+                PostalCode = user.PostalCode,
+                HouseNumber = user.HouseNumber,
+                FlatNumber = user.FlatNumber
+            };
+
+            return View("EditAccount", viewModel);
+        }
+
+        // Save account changes Post
+        // Editing account details shares the same ViewModel with register, only difference is less fields
+        // Because i'm to lazy to make separate one
+        [HttpPost]
+        public ActionResult Save(RegisterViewModel registerViewModel)
+        {
+            var currLoggedUser = User.Identity.GetUserId();
+
+            var user = _dbContext.Users.FirstOrDefault(u => u.Id == currLoggedUser);
+            user.Email = registerViewModel.Email;
+            user.BankAccountNumber = registerViewModel.BankAccountNumber;
+            user.Town = registerViewModel.Town;
+            user.Street = registerViewModel.Street;
+            user.PostalCode = registerViewModel.PostalCode;
+            user.HouseNumber = registerViewModel.HouseNumber;
+            user.FlatNumber = registerViewModel.FlatNumber;
+
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index", "Manage");
+        }
     }
 }

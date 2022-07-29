@@ -153,6 +153,13 @@ namespace Skilldemy.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email  };
+                user.BankAccountNumber = model.BankAccountNumber;
+                user.FlatNumber = model.FlatNumber;
+                user.HouseNumber = model.HouseNumber;
+                user.PostalCode = model.PostalCode;
+                user.Town = model.Town;
+                user.Street = model.Street;
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

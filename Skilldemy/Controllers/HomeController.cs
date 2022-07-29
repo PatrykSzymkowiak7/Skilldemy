@@ -9,60 +9,27 @@ namespace Skilldemy.Controllers
 {
     public class HomeController : Controller
     {
-        public List<Course> InitCourses()
+        private ApplicationDbContext _context;
+
+        public HomeController()
         {
-            Tag tag1 = new Tag
-            {
-                Id = 1,
-                Name = "Gastronomia"
-            };
-
-            Tag tag2 = new Tag
-            {
-                Id = 2,
-                Name = "Kuchnia",
-            };
-
-            Tag tag3 = new Tag
-            {
-                Id = 3,
-                Name = "Kulinaria"
-            };
-
-            List<Tag> tags = new List<Tag>();
-
-            tags.Add(tag1);
-            tags.Add(tag2);
-            tags.Add(tag3);
-
-            Course course = new Course
-            {
-                Id = 1,
-                Title = "To jest przykładowy tytuł",
-                Description = "To jest przykładowy opis kursu",
-                OwnerId = 1,
-                //Tags = tags,
-                Price = 49.99,
-                Discount = 0,
-                Rating = 5.00,
-                Reviews = 17,
-                Difficulty = "Początkujący"
-            };
-
-            List<Course> courses = new List<Course>();
-            courses.Add(course);
-
-            return courses;
+            _context = new ApplicationDbContext();
         }
 
         public ActionResult Index()
         {
-            return View(InitCourses());
+            List<Object> model = new List<Object>();
+            List<Course> courses = _context.Courses.ToList();
+            List<Image> images = _context.Images.ToList();
+            model.Add(courses);
+            model.Add(images);
+
+            return View(model);
         }
 
-        public ActionResult Course()
+        public ActionResult ShowCourse()
         {
-            return View(InitCourses());
+            return View();
         }
 
         /*

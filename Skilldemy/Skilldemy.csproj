@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -228,6 +231,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -259,9 +263,24 @@
     <Compile Include="Migrations\202207201748536_UserModel.designer.cs">
       <DependentUpon>202207201748536_UserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207290812033_Asdf.cs" />
+    <Compile Include="Migrations\202207290812033_Asdf.designer.cs">
+      <DependentUpon>202207290812033_Asdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207291023103_FileModelChanges.cs" />
+    <Compile Include="Migrations\202207291023103_FileModelChanges.designer.cs">
+      <DependentUpon>202207291023103_FileModelChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207291136425_AnotherModelChanges.cs" />
+    <Compile Include="Migrations\202207291136425_AnotherModelChanges.designer.cs">
+      <DependentUpon>202207291136425_AnotherModelChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\CourseViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tag.cs" />
@@ -328,12 +347,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Home\Course.cshtml" />
+    <Content Include="Views\Manage\EditAccount.cshtml" />
+    <Content Include="Views\Course\CreateCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Api\" />
     <Folder Include="UserFiles\" />
-    <Folder Include="Views\Course\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -363,6 +383,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207201748536_UserModel.resx">
       <DependentUpon>202207201748536_UserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207290812033_Asdf.resx">
+      <DependentUpon>202207290812033_Asdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207291023103_FileModelChanges.resx">
+      <DependentUpon>202207291023103_FileModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207291136425_AnotherModelChanges.resx">
+      <DependentUpon>202207291136425_AnotherModelChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
