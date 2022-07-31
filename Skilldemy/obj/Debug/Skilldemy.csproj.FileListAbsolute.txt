@@ -148,3 +148,4 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\AutoMapper.dll
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\AutoMapper.xml
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.FileModelChanges.resources
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.AnotherModelChanges.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.AssemblyReference.cache
