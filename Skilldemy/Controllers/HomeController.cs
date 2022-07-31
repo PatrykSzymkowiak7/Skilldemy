@@ -27,9 +27,16 @@ namespace Skilldemy.Controllers
             return View(model);
         }
 
-        public ActionResult ShowCourse()
+        public ActionResult ShowCourse(int id)
         {
-            return View();
+            if (id != null && id != 0)
+            {
+                Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
+                return View("Course", course);
+            }
+            else
+                return View();
+            
         }
 
         /*

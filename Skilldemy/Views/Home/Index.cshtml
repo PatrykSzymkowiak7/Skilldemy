@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <hr />
-@{  
+@{
     List<Course> courses = new List<Course>();
     List<Image> images = new List<Image>();
     foreach (object obj in Model)
@@ -22,15 +22,24 @@
 }
 @foreach (var course in courses)
 {
-<div class="course-wrapper">
-    @{ var courseImage = images.FirstOrDefault(i => i.CourseId == course.Id);
-        if (courseImage != null)
-        {
-            if (courseImage.ImageFile != null)
+var hrefString = String.Format("ShowCourse/{0}", course.Id);
+<a href=@hrefString>
+    <div class="course-wrapper">
+        @{ var courseImage = images.FirstOrDefault(i => i.CourseId == course.Id);
+            if (courseImage != null)
             {
-                <div class="course-left">
-                    <img src='@Url.Action("ShowImage", "Course", new { id = courseImage.Id })' width="275" height="183"/>
-                </div>
+                if (courseImage.ImageFile != null)
+                {
+                    <div class="course-left">
+                        <img src='@Url.Action("ShowImage", "Course", new { id = courseImage.Id })' width="275" height="183" />
+                    </div>
+                }
+                else
+                {
+                    <div class="course-left">
+                        <img src="data:image/jpeg;base64" width="275" height="183">
+                    </div>
+                }
             }
             else
             {
@@ -39,22 +48,16 @@
                 </div>
             }
         }
-        else
-        {
-            <div class="course-left">
-                <img src="data:image/jpeg;base64" width="275" height="183">
-            </div>
-        }
-    }
-    <div class="course-right">
-        @{
-            <span class="course-title">@course.Title</span><br />
-            <span class="course-title">@course.Description</span><br />
-            <span class="course-title">@course.Rating</span> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/768px-Gold_Star.svg.png" width="15" height="15" />
-            <span class="course-title">@course.Reviews</span><br />
-            <span class="course-title">@course.Difficulty</span><br />
-        }
+        <div class="course-right">
+            @{
+                <span class="course-title">@course.Title</span><br />
+                <span class="course-title">@course.Description</span><br />
+                <span class="course-title">@course.Rating</span> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/768px-Gold_Star.svg.png" width="15" height="15" />
+                <span class="course-title">@course.Reviews</span><br />
+                <span class="course-title">@course.Difficulty</span><br />
+            }
+        </div>
     </div>
-</div>
-<br/>
+</a>
+<br />
 }
