@@ -110,7 +110,7 @@ namespace Skilldemy.Controllers
             // Need to delay taking pictures from the database because it throws
             // "The underlying provider failed on Open" if it happens too fast
             // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
-            var task = Task.Delay(5000).ContinueWith(t => Console.WriteLine(DateTime.Now));
+            var task = Task.Delay(1000).ContinueWith(t => Console.WriteLine(DateTime.Now));
             var image = _context.Images.FirstOrDefault(i => i.Id == id);
             task.Wait();
 
@@ -130,7 +130,7 @@ namespace Skilldemy.Controllers
             // Need to delay taking videos from the database because it throws
             // "The underlying provider failed on Open" if it happens too fast
             // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
-            var task = Task.Delay(5000).ContinueWith(t => Console.WriteLine(DateTime.Now));
+            var task = Task.Delay(1000).ContinueWith(t => Console.WriteLine(DateTime.Now));
             var video = _context.Videos.FirstOrDefault(i => i.Id == id);
             task.Wait();
 

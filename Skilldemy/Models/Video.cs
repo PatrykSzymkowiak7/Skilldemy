@@ -17,5 +17,7 @@ namespace Skilldemy.Models
         public byte[] VideoFile { get; set; }
 
         public DateTime UploadedDate { get; set; }
+
+        public bool IsPreviewVideo { get; set; }
     }
 }

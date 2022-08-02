@@ -1,11 +1,11 @@
-﻿@model Skilldemy.Models.CreateCourseViewModel
+﻿@model Skilldemy.Models.ManageSectionsViewModel
 @{
-    ViewBag.Title = "Utwórz kurs";
+    ViewBag.Title = "Zarządzaj sekcjami";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("CreateCourse", "Course", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
+@using (Html.BeginForm("ManageSections", "Course", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <hr />

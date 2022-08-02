@@ -22,8 +22,6 @@
 }
 @foreach (var course in courses)
 {
-var hrefString = String.Format("ShowCourse/{0}", course.Id);
-//<a href=@hrefString>
     <a href="@Url.Action("ShowCourse", "Home", new { id = course.Id })">
         <div class="course-wrapper">
             @{ var courseImage = images.FirstOrDefault(i => i.CourseId == course.Id);
@@ -61,4 +59,4 @@ var hrefString = String.Format("ShowCourse/{0}", course.Id);
         </div>
     </a>
     <br />
-    }
+}

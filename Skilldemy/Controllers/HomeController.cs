@@ -36,7 +36,27 @@ namespace Skilldemy.Controllers
             }
             else
                 return View();
-            
+        }
+
+        public ActionResult SearchByText(string searchPhrase)
+        {
+            List<Object> model = new List<Object>();
+            List<Course> courses = _context.Courses.Where(c => c.Category.Contains(searchPhrase) == true 
+            || c.Title.Contains(searchPhrase) == true).ToList();
+            List<Image> allImages = _context.Images.ToList();
+            List<Image> images = new List<Image>();
+            foreach(var img in allImages)
+            {
+                if(courses.Any(c => c.Id == img.Id))
+                {
+                    images.Add(img);
+                }
+            }
+
+            model.Add(courses);
+            model.Add(images);
+
+            return View("Index", model);
         }
 
         /*

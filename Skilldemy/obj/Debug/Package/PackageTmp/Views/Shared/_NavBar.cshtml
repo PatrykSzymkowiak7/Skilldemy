@@ -10,8 +10,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Gastronomia", "Index", "Home")</li>
+                <li>@Html.ActionLink("Programowanie", "Index", "Home")</li>
+                <li>@Html.ActionLink("Grafika komputerowa", "Index", "Home")</li>
+                <li>@Html.ActionLink("Języki obce", "Index", "Home")</li>
+                <li>@Html.ActionLink("Biznes", "Index", "Home")</li>
+                <li>@Html.ActionLink("Finanse", "Index", "Home")</li>
             </ul>
+            <input id="SearchByText" value="Wyszukaj" type="text" onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
             @Html.Partial("_LoginPartial")
         </div>
     </div>

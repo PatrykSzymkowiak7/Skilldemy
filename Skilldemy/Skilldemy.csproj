@@ -275,10 +275,19 @@
     <Compile Include="Migrations\202207291136425_AnotherModelChanges.designer.cs">
       <DependentUpon>202207291136425_AnotherModelChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208021603015_ModelVideo.cs" />
+    <Compile Include="Migrations\202208021603015_ModelVideo.designer.cs">
+      <DependentUpon>202208021603015_ModelVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021710196_CourseCategory.cs" />
+    <Compile Include="Migrations\202208021710196_CourseCategory.designer.cs">
+      <DependentUpon>202208021710196_CourseCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\SearchEngineViewModel.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\CourseViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -311,6 +320,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ScriptsPlaceHolder.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -349,6 +359,7 @@
     <Content Include="Views\Home\Course.cshtml" />
     <Content Include="Views\Manage\EditAccount.cshtml" />
     <Content Include="Views\Course\CreateCourse.cshtml" />
+    <Content Include="Views\Course\ManageSections.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,6 +403,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207291136425_AnotherModelChanges.resx">
       <DependentUpon>202207291136425_AnotherModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021603015_ModelVideo.resx">
+      <DependentUpon>202208021603015_ModelVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021710196_CourseCategory.resx">
+      <DependentUpon>202208021710196_CourseCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

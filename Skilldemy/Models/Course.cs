@@ -41,5 +41,9 @@ namespace Skilldemy.Models
         public string HtmlAndJs { get; set; }
 
         public DateTime CreatedDate { get; set; }
+
+        [Required]
+        [Display(Name = "Kategoria")]
+        public string Category { get; set; }
     }
 }

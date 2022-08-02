@@ -10,7 +10,6 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Wszystkie kategorie", "Index", "Home")</li>
                 <li>@Html.ActionLink("Gastronomia", "Index", "Home")</li>
                 <li>@Html.ActionLink("Programowanie", "Index", "Home")</li>
                 <li>@Html.ActionLink("Grafika komputerowa", "Index", "Home")</li>
@@ -18,7 +17,20 @@
                 <li>@Html.ActionLink("Biznes", "Index", "Home")</li>
                 <li>@Html.ActionLink("Finanse", "Index", "Home")</li>
             </ul>
+            @{ var searchPhrase = "Wyszukaj";}
+            <input id="SearchByText" value="@searchPhrase" type="text" onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
+            <a href="@Url.Action("SearchByText", "Home", new { searchPhrase = searchPhrase} )">
+                <img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" onclick="" />
+            </a>
             @Html.Partial("_LoginPartial")
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function changeValue(id) {
+        var searchByTextId = document.getElementById("SearchByText").value;
+        var data = {
+            parentPartId: id,
+            UserID: userId
+        }
+</script>

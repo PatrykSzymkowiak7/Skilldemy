@@ -32,10 +32,16 @@ namespace Skilldemy.Models
         [Display(Name = "Miniaturka")]
         public HttpPostedFileBase ImageFile { get; set; }
 
-        public HttpPostedFileBase VideoFile { get; set; }
+        [Display(Name = "Wideo prezentujące kurs")]
+        public HttpPostedFileBase PreviewVideoFile { get; set; }
     }
 
     public class EditCourseViewModel
+    {
+
+    }
+
+    public class ManageSectionsViewModel
     {
 
     }
