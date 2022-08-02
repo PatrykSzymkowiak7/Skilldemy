@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -106,12 +107,38 @@ namespace Skilldemy.Controllers
 
         public ActionResult ShowImage(int id)
         {
+            // Need to delay taking pictures from the database because it throws
+            // "The underlying provider failed on Open" if it happens too fast
+            // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
+            var task = Task.Delay(5000).ContinueWith(t => Console.WriteLine(DateTime.Now));
             var image = _context.Images.FirstOrDefault(i => i.Id == id);
-            if(image != null)
+            task.Wait();
+
+            if (image != null)
             {
                 if(image.ImageFile != null)
                 {
                     return File(image.ImageFile, "image/jpg");
+                }
+            }
+
+            return null;
+        }
+
+        public ActionResult ShowVideo(int id)
+        {
+            // Need to delay taking videos from the database because it throws
+            // "The underlying provider failed on Open" if it happens too fast
+            // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
+            var task = Task.Delay(5000).ContinueWith(t => Console.WriteLine(DateTime.Now));
+            var video = _context.Videos.FirstOrDefault(i => i.Id == id);
+            task.Wait();
+
+            if (video != null)
+            {
+                if (video.VideoFile != null)
+                {
+                    return File(video.VideoFile, "video/mp4");
                 }
             }
 
