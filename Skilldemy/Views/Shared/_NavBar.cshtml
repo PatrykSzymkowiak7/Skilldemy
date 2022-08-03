@@ -17,7 +17,8 @@
                 <li>@Html.ActionLink("Biznes", "SearchByText", "Home", new { searchPhrase = "Biznes" }, "")</li>
                 <li>@Html.ActionLink("Finanse", "SearchByText", "Home", new { searchPhrase = "Finanse" }, "")</li>
             </ul>
-            <input id="SearchByText" value="Wyszukaj" type="text" onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
+            <input id="SearchByText" class="wystyluj-mnie-proszę" value="Wyszukaj" type="text" 
+                   onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
             <a onclick="changeHref();">
                 <img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" />
             </a>
