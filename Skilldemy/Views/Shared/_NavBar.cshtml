@@ -10,27 +10,27 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Gastronomia", "Index", "Home")</li>
-                <li>@Html.ActionLink("Programowanie", "Index", "Home")</li>
-                <li>@Html.ActionLink("Grafika komputerowa", "Index", "Home")</li>
-                <li>@Html.ActionLink("Języki obce", "Index", "Home")</li>
-                <li>@Html.ActionLink("Biznes", "Index", "Home")</li>
-                <li>@Html.ActionLink("Finanse", "Index", "Home")</li>
+                <li>@Html.ActionLink("Gastronomia", "SearchByText", "Home", new { searchPhrase = "Gastronomia"}, "")</li>
+                <li>@Html.ActionLink("Programowanie", "SearchByText", "Home", new { searchPhrase = "Programowanie" }, "")</li>
+                <li>@Html.ActionLink("Grafika komputerowa", "SearchByText", "Home", new { searchPhrase = "Grafika komputerowa" }, "")</li>
+                <li>@Html.ActionLink("Języki obce", "SearchByText", "Home", new { searchPhrase = "Języki obce" }, "")</li>
+                <li>@Html.ActionLink("Biznes", "SearchByText", "Home", new { searchPhrase = "Biznes" }, "")</li>
+                <li>@Html.ActionLink("Finanse", "SearchByText", "Home", new { searchPhrase = "Finanse" }, "")</li>
             </ul>
-            @{ var searchPhrase = "Wyszukaj";}
-            <input id="SearchByText" value="@searchPhrase" type="text" onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
-            <a href="@Url.Action("SearchByText", "Home", new { searchPhrase = searchPhrase} )">
-                <img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" onclick="" />
+            <input id="SearchByText" value="Wyszukaj" type="text" onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
+            <a onclick="changeHref();">
+                <img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" />
             </a>
             @Html.Partial("_LoginPartial")
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    function changeValue(id) {
-        var searchByTextId = document.getElementById("SearchByText").value;
-        var data = {
-            parentPartId: id,
-            UserID: userId
-        }
+    function changeHref() {
+        var url = '@Url.Action("SearchByText", "Home")';
+        var txtVal = $('#SearchByText').val();
+        if (txtVal === "Wyszukaj")
+            txtVal = "";
+        window.location.href = url + "?searchPhrase=" + txtVal;
+    }
 </script>
