@@ -42,8 +42,6 @@ namespace Skilldemy.Models
 
         public DateTime CreatedDate { get; set; }
 
-        [Required]
-        [Display(Name = "Kategoria")]
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
     }
 }

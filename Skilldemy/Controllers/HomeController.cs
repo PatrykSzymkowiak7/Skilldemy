@@ -41,8 +41,15 @@ namespace Skilldemy.Controllers
         public ActionResult SearchByText(string searchPhrase)
         {
             List<Object> model = new List<Object>();
-            List<Course> courses = _context.Courses.Where(c => c.Category.Contains(searchPhrase) == true 
-            || c.Title.Contains(searchPhrase) == true).ToList();
+
+            List<Category> categories = _context.Categories.ToList();
+            var category = categories.FirstOrDefault(c => c.Name.Contains(searchPhrase) == true);
+
+            List<Course> courses = _context.Courses.Where(c => c.CategoryId == category.Id
+            || c.Title.Contains(searchPhrase) == true
+            || c.Description.Contains(searchPhrase) == true)
+                .ToList();
+
             List<Image> allImages = _context.Images.ToList();
             List<Image> images = new List<Image>();
             foreach(var img in allImages)

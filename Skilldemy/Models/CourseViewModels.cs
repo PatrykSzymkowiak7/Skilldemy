@@ -29,11 +29,17 @@ namespace Skilldemy.Models
 
         public DateTime CreatedDate { get; set; }
 
+        [Required]
         [Display(Name = "Miniaturka")]
         public HttpPostedFileBase ImageFile { get; set; }
 
+        [Required]
         [Display(Name = "Wideo prezentujące kurs")]
         public HttpPostedFileBase PreviewVideoFile { get; set; }
+
+        [CategoryDDLValidation]
+        [Display(Name = "Kategoria")]
+        public int CategoryId { get; set; }
     }
 
     public class EditCourseViewModel

@@ -151,3 +151,4 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.AnotherM
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.AssemblyReference.cache
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.ModelVideo.resources
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.CourseCategory.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.Category.resources

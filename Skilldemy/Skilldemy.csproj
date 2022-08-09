@@ -283,9 +283,15 @@
     <Compile Include="Migrations\202208021710196_CourseCategory.designer.cs">
       <DependentUpon>202208021710196_CourseCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208081617483_Category.cs" />
+    <Compile Include="Migrations\202208081617483_Category.designer.cs">
+      <DependentUpon>202208081617483_Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CategoryDDLValidation.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\SearchEngineViewModel.cs" />
     <Compile Include="Models\Video.cs" />
@@ -409,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208021710196_CourseCategory.resx">
       <DependentUpon>202208021710196_CourseCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081617483_Category.resx">
+      <DependentUpon>202208081617483_Category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

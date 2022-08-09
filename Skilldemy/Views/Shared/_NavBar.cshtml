@@ -20,7 +20,7 @@
             <input id="SearchByText" class="wystyluj-mnie-proszę" value="Wyszukaj" type="text" 
                    onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
             <a onclick="changeHref();">
-                <img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" />
+                <img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" style="width:10px"/>
             </a>
             @Html.Partial("_LoginPartial")
         </div>
@@ -28,8 +28,8 @@
 </div>
 <script type="text/javascript">
     function changeHref() {
-        var url = '@Url.Action("SearchByText", "Home")';
-        var txtVal = $('#SearchByText').val();
+        let url = '@Url.Action("SearchByText", "Home")';
+        let txtVal = $('#SearchByText').val();
         if (txtVal === "Wyszukaj")
             txtVal = "";
         window.location.href = url + "?searchPhrase=" + txtVal;

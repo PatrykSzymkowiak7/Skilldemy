@@ -51,6 +51,7 @@ namespace Skilldemy.Controllers
             course.Price = createCourseViewModel.Price;
             course.Title = createCourseViewModel.Title;
             course.Description = createCourseViewModel.Description;
+            course.CategoryId = createCourseViewModel.CategoryId;
             var highestIdCourse = _context.Courses.OrderByDescending(c => c.Id).FirstOrDefault();
 
             if (highestIdCourse == null)
