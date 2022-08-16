@@ -45,23 +45,44 @@ namespace Skilldemy.Controllers
             List<Object> model = new List<Object>();
             List<Category> categories = _context.Categories.ToList();
             List<Course> courses = new List<Course>();
-
-            var category = categories.FirstOrDefault(c => c.Name.Contains(searchPhrase) == true);
+            List<Course> coursesFiltered = new List<Course>();
+            Category category = new Category();
+            
+            if(searchPhrase != "")
+            {
+                category = categories.FirstOrDefault(c => c.Name.Contains(searchPhrase) == true);
+            }
 
             if(category != null)
             {
                 courses = _context.Courses.Where(c => c.CategoryId == category.Id
-                || c.Title.Contains(searchPhrase) == true
-                || c.Description.Contains(searchPhrase) == true
-                && c.IsVisible == true)
+                || (c.Title.Contains(searchPhrase) == true)
+                || (c.Description.Contains(searchPhrase) == true)
+                && (c.IsVisible == true))
                     .ToList();
+
+                foreach (var course in courses)
+                {
+                    if (course.IsVisible)
+                    {
+                        coursesFiltered.Add(course);
+                    }
+                }
             }
             else
             {
                 courses = _context.Courses.Where(c => c.Title.Contains(searchPhrase) == true
-                || c.Description.Contains(searchPhrase) == true
-                && c.IsVisible == true)
+                || (c.Description.Contains(searchPhrase) == true)
+                && (c.IsVisible == true))
                 .ToList();
+
+                foreach (var course in courses)
+                {
+                    if (course.IsVisible)
+                    {
+                        coursesFiltered.Add(course);
+                    }
+                }
             }
 
             List<Image> allImages = _context.Images.ToList();
@@ -69,13 +90,13 @@ namespace Skilldemy.Controllers
             List<Image> images = new List<Image>();
             foreach(var img in allImages)
             {
-                if(courses.Any(c => c.Id == img.Id))
+                if(coursesFiltered.Any(c => c.Id == img.Id))
                 {
                     images.Add(img);
                 }
             }
 
-            model.Add(courses);
+            model.Add(coursesFiltered);
             model.Add(images);
 
             return View("Index", model);
