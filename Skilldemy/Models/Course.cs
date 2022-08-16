@@ -27,8 +27,8 @@ namespace Skilldemy.Models
 
         [Required]
         [Display(Name = "Cena")]
-        [Range(0, double.MaxValue, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią")]
-        public double Price { get; set; }
+        [Range(0, 2000, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią, oraz nie może przekraczać 2000 zł")]
+        public decimal Price { get; set; }
 
         public double Discount { get; set; }
 
@@ -43,5 +43,7 @@ namespace Skilldemy.Models
         public DateTime CreatedDate { get; set; }
 
         public int CategoryId { get; set; }
+
+        public bool IsVisible { get; set; }
     }
 }

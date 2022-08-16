@@ -152,3 +152,7 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.AssemblyRefe
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.ModelVideo.resources
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.CourseCategory.resources
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.Category.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.Widocznosc_Kursu.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.Sections.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.SectionsV2.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.Update_Ceny_Z_Double_Na_Decimal.resources

@@ -10,13 +10,30 @@ namespace Skilldemy.Models
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var createCourseViewModel = (CreateCourseViewModel)validationContext.ObjectInstance;
+            var type = value.GetType();
 
-            if(createCourseViewModel != null)
+            if(type.Name == "CreateCourseViewModel")
             {
-                if(createCourseViewModel.CategoryId == 0)
+                var createCourseViewModel = (CreateCourseViewModel)validationContext.ObjectInstance;
+
+                if (createCourseViewModel != null)
                 {
-                    return new ValidationResult("Należy wybrać kategorię");
+                    if (createCourseViewModel.CategoryId == 0)
+                    {
+                        return new ValidationResult("Należy wybrać kategorię");
+                    }
+                }
+            }
+            else if(type.Name == "EditCourseViewModel")
+            {
+                var createCourseViewModel = (EditCourseViewModel)validationContext.ObjectInstance;
+
+                if (createCourseViewModel != null)
+                {
+                    if (createCourseViewModel.CategoryId == 0)
+                    {
+                        return new ValidationResult("Należy wybrać kategorię");
+                    }
                 }
             }
 

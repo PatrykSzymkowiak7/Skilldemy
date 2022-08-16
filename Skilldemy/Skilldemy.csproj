@@ -242,6 +242,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HttpPostedFileBaseHelper.cs" />
     <Compile Include="MigrationHelper\MyMigrationSQLGenerator.cs" />
     <Compile Include="Migrations\202206301547542_Course and Tag models.cs" />
     <Compile Include="Migrations\202206301547542_Course and Tag models.designer.cs">
@@ -286,6 +287,22 @@
     <Compile Include="Migrations\202208081617483_Category.cs" />
     <Compile Include="Migrations\202208081617483_Category.designer.cs">
       <DependentUpon>202208081617483_Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208091639325_Widocznosc_Kursu.cs" />
+    <Compile Include="Migrations\202208091639325_Widocznosc_Kursu.designer.cs">
+      <DependentUpon>202208091639325_Widocznosc_Kursu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208140738140_Sections.cs" />
+    <Compile Include="Migrations\202208140738140_Sections.designer.cs">
+      <DependentUpon>202208140738140_Sections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208141258125_SectionsV2.cs" />
+    <Compile Include="Migrations\202208141258125_SectionsV2.designer.cs">
+      <DependentUpon>202208141258125_SectionsV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208141433185_Update_Ceny_Z_Double_Na_Decimal.cs" />
+    <Compile Include="Migrations\202208141433185_Update_Ceny_Z_Double_Na_Decimal.designer.cs">
+      <DependentUpon>202208141433185_Update_Ceny_Z_Double_Na_Decimal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -366,6 +383,11 @@
     <Content Include="Views\Manage\EditAccount.cshtml" />
     <Content Include="Views\Course\CreateCourse.cshtml" />
     <Content Include="Views\Course\ManageSections.cshtml" />
+    <Content Include="Views\Course\SectionCreated.cshtml" />
+    <Content Include="Views\Course\CoursePreview.cshtml" />
+    <Content Include="Views\Course\MyCourses.cshtml" />
+    <Content Include="Views\Course\EditCourse.cshtml" />
+    <Content Include="Views\Course\EditSections.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -418,6 +440,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208081617483_Category.resx">
       <DependentUpon>202208081617483_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091639325_Widocznosc_Kursu.resx">
+      <DependentUpon>202208091639325_Widocznosc_Kursu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208140738140_Sections.resx">
+      <DependentUpon>202208140738140_Sections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208141258125_SectionsV2.resx">
+      <DependentUpon>202208141258125_SectionsV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208141433185_Update_Ceny_Z_Double_Na_Decimal.resx">
+      <DependentUpon>202208141433185_Update_Ceny_Z_Double_Na_Decimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
