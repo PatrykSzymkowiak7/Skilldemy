@@ -44,14 +44,25 @@ namespace Skilldemy.Controllers
         {
             List<Object> model = new List<Object>();
             List<Category> categories = _context.Categories.ToList();
+            List<Course> courses = new List<Course>();
 
             var category = categories.FirstOrDefault(c => c.Name.Contains(searchPhrase) == true);
 
-            List<Course> courses = _context.Courses.Where(c => c.CategoryId == category.Id
-            || c.Title.Contains(searchPhrase) == true
-            || c.Description.Contains(searchPhrase) == true
-            && c.IsVisible == true)
+            if(category != null)
+            {
+                courses = _context.Courses.Where(c => c.CategoryId == category.Id
+                || c.Title.Contains(searchPhrase) == true
+                || c.Description.Contains(searchPhrase) == true
+                && c.IsVisible == true)
+                    .ToList();
+            }
+            else
+            {
+                courses = _context.Courses.Where(c => c.Title.Contains(searchPhrase) == true
+                || c.Description.Contains(searchPhrase) == true
+                && c.IsVisible == true)
                 .ToList();
+            }
 
             List<Image> allImages = _context.Images.ToList();
 
