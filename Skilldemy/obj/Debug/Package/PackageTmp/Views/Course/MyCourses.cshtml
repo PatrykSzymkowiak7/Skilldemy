@@ -72,19 +72,34 @@
                     </div>
                 }
             }
-        <div class="course-right">
-            @{
-                <span class="course-title">@course.Title</span><br />
-                <span class="course-title">@course.Description</span><br />
-                <span class="course-title">@course.Rating</span> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/768px-Gold_Star.svg.png" width="15" height="15" />
-                <span class="course-title">@course.Reviews</span><br />
-                <span class="course-title">@course.Difficulty</span><br />
-                <span class="course-title">@categoryName</span><br />
-                <span class="course-title">@course.Price zł</span><br />
-                <span class="course-title">@course.OwnerUserName</span><br />
-            }
-        </div>
+            <div class="course-right">
+                @{
+                    <span class="course-title">@course.Title</span><br />
+                    <span class="course-title">@course.Description</span><br />
+                    <span class="course-title">@course.Rating</span> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/768px-Gold_Star.svg.png" width="15" height="15" />
+                    <span class="course-title">@course.Reviews</span><br />
+                    <span class="course-title">@course.Difficulty</span><br />
+                    <span class="course-title">@categoryName</span><br />
+                    <span class="course-title">@course.Price zł</span><br />
+                    <span class="course-title">@course.OwnerUserName</span><br />
+                }
+            </div>
         </div>
     </a>
     <br />
+    @Html.ActionLink("Zmień widoczność", "SetVisibility", "Course", new { id = course.Id }, "")
+    string isVisible = String.Empty;
+    if (course.IsVisible)
+    {
+        isVisible = "Obecnie kurs jest widoczny dla innych użytkowników";
+        <div class="visibility-danger" style="color: green;">@isVisible</div>
+    }
+    else
+    {
+        isVisible = "Obecnie kurs jest niewidoczny dla innych użytkowników";
+        <div class="visibility-danger" style="color:red;">@isVisible</div>
+    }
+    <br />
+    @Html.ActionLink("Edytuj kurs", "EditCourseRedirect", "Course", new { id = course.Id }, "")<br />
+    @Html.ActionLink("Usun kurs", "DeleteCourse", "Course", new { id = course.Id }, "")<br />
 }
