@@ -235,7 +235,20 @@ namespace Skilldemy.Controllers
         public ActionResult DeleteCourse(int id)
         {
             Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            List<Image> images = _context.Images.Where(i => i.CourseId == id).ToList();
+            List<Video> videos = _context.Videos.Where(i => i.CourseId == id).ToList();
+
+            foreach(var image in images)
+            {
+                _context.Images.Remove(image);
+            }
+            foreach (var video in videos)
+            {
+                _context.Videos.Remove(video);
+            }
+
             _context.Courses.Remove(course);
+            _context.SaveChanges();
 
             return RedirectToAction("MyCourses");
         }
