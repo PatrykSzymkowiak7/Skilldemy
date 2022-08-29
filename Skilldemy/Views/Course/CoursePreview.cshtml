@@ -21,13 +21,13 @@
             <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" style="width:300px;height:300px" />
         </video>
     </div>
-    <div class="main-course-right" onclick="switchVisible();">
+    <div class="main-course-right">
         @foreach (var fetchedSection in sortedSectionList)
         {
-        <div id="@fetchedSection.Id main-course-section-title">
+        <div class="@fetchedSection.Id main-course-section-title" onclick="switchVisible(@fetchedSection.Id);">
             @fetchedSection.SectionTitle
         </div>
-        <div id="@fetchedSection.Id main-course-section-description">
+        <div class="@fetchedSection.Id main-course-section-description" style="display:none">
             @fetchedSection.SectionDescription
         </div>
         }
@@ -37,6 +37,16 @@
 @Html.ActionLink("Zakup kurs", "Index", "Manage")
 @section Scripts
 {
-    <script>
+    <script type="text/javascript">
+        function switchVisible(id) {
+            var sub = document.getElementsByClassName(id + ' main-course-section-description');
+            Array.from(sub).forEach((x) => {
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            })
+        }
     </script>
 }
