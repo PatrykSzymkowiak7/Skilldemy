@@ -388,6 +388,7 @@
     <Content Include="Views\Course\MyCourses.cshtml" />
     <Content Include="Views\Course\EditCourse.cshtml" />
     <Content Include="Views\Course\EditSections.cshtml" />
+    <Content Include="Views\Shared\PopupSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

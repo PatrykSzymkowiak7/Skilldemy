@@ -86,3 +86,8 @@ textarea {
 .input-validation-error{
     border: 2px solid red;
 }
+
+myModal{
+    height: 300px;
+    width:500xp;
+}

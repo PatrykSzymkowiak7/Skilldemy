@@ -5,7 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    var video = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
+    var previewVideo = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
+    var messySectionsList = Model.Videos.Where(m => m.IsPreviewVideo != true);
+    var sortedSectionList = messySectionsList.OrderBy(m => m.UploadedDate);
+    
 }
 
 <div class="course-availables">
@@ -15,17 +18,35 @@
 <div class="main-course-wrapper">
     <div class="main-course-left">
         <video controls autoplay oncontextmenu="return false;" controlsList="nodownload">
-            <source src='@Url.Action("ShowVideo", "Course", new { id = video.Id })' type="video/mp4" style="width:300px;height:300px" />
+            <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" style="width:300px;height:300px" />
         </video>
     </div>
-    <div class="main-course-right" onclick="switchVisible();">
-        <div id="main-course-section">
+    <div class="main-course-right">
+        @foreach (var fetchedSection in sortedSectionList)
+        {
+        <div class="@fetchedSection.Id main-course-section-title" onclick="switchVisible(@fetchedSection.Id);">
+            @fetchedSection.SectionTitle
         </div>
+        <div class="@fetchedSection.Id main-course-section-description" style="display:none">
+            @fetchedSection.SectionDescription
+        </div>
+        }
+
     </div>
 </div>
 @Html.ActionLink("Zakup kurs", "Index", "Manage")
 @section Scripts
 {
-    <script>
+    <script type="text/javascript">
+        function switchVisible(id) {
+            var sub = document.getElementsByClassName(id + ' main-course-section-description');
+            Array.from(sub).forEach((x) => {
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            })
+        }
     </script>
 }

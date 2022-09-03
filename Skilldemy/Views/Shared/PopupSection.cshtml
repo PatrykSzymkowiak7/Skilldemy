@@ -1,0 +1,18 @@
+﻿@model Skilldemy.Models.SectionViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+</div>
+
+@{
+    ViewBag.Title = "Sekcja utworzona!";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.ActionLink("Zakończ", "Index", "Manage")&nbsp
+@Html.ActionLink("Dodaj kolejną sekcję", "AddAnotherSection", new { id = Model.CourseId })
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
