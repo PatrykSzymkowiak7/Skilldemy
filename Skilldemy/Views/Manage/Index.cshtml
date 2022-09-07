@@ -40,31 +40,6 @@
             ]
         </dd>
 
-        <div class="AddPopUp">
-            @Html.Label("Add pop up")
-        </div>
-        <div class="modal fade" id="MyPopUp" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h2> Sekcja utworzona! </h2>
-                        @Html.ActionLink("Zakończ", "Index", "Manage")&nbsp
-                        @Html.ActionLink("Dodaj kolejną sekcję", "AddAnotherSection", new { id = 1 })
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @section Scripts{
-        <script type="text/javascript">
-        $(document).ready(function () {
-            $(".AddPopUp").click(function (e) {
-                $('#MyPopUp').modal('show');
-            });
-        });
-        </script>
-        }
-
         @*<dt>Konta zewnętrzne:</dt>
         <dd>
             @Model.Logins.Count [

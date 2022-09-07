@@ -87,7 +87,18 @@ textarea {
     border: 2px solid red;
 }
 
-myModal{
-    height: 300px;
-    width:500xp;
+.modal{
+    display:block !important;
+}
+
+.main-course-section-description {
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.main-course-section-description active {
+    opacity: 1;
+    height: auto;
 }

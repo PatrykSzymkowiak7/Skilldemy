@@ -111,7 +111,8 @@ namespace Skilldemy.Controllers
             // "The underlying provider failed on Open" if it happens too fast
             // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
             var task = Task.Delay(1000).ContinueWith(t => Console.WriteLine(DateTime.Now));
-            var image = _context.Images.FirstOrDefault(i => i.Id == id);
+            List<Image> images = (_context.Images.Where(i => i.Id == id)).ToList();
+            Image image = images.FirstOrDefault();
             task.Wait();
 
             if (image != null)
@@ -189,8 +190,13 @@ namespace Skilldemy.Controllers
             return View("ManageSections", sectionViewModel);
         }
 
-        public ActionResult CoursePreview(int id)
+        public ActionResult CoursePreview(int? id)
         {
+            if(id == null)
+            {
+                return View("Index");
+            }
+
             CoursePreviewViewModel coursePreviewViewModel = new CoursePreviewViewModel();
             Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
             List<Video> videos = (_context.Videos.Where(v => v.CourseId == id)).ToList();
@@ -204,6 +210,11 @@ namespace Skilldemy.Controllers
         public ActionResult MyCourses()
         {
             var currentUserId = User.Identity.GetUserId();
+            if(currentUserId == null)
+            {
+                return View("Index");
+            }
+
             List<Object> model = new List<Object>();
             List<Course> courses = new List<Course>(_context.Courses.Where(c => c.OwnerId == currentUserId));
             List<Image> images = _context.Images.ToList();
@@ -253,8 +264,13 @@ namespace Skilldemy.Controllers
             return RedirectToAction("MyCourses");
         }
 
-        public ActionResult EditCourseRedirect(int id)
+        public ActionResult EditCourseRedirect(int? id)
         {
+            if(!id.HasValue)
+            {
+                return View("Index");
+            }
+
             EditCourseViewModel editCourseViewModel = new EditCourseViewModel();
             Course course = new Course();
             Image image = new Image();
@@ -265,7 +281,7 @@ namespace Skilldemy.Controllers
 
             course = _context.Courses.FirstOrDefault(c => c.Id == id);
 
-            editCourseViewModel.Id = course.Id;
+            editCourseViewModel.CourseId = id.Value;
             editCourseViewModel.CategoryId = course.CategoryId;
             editCourseViewModel.Description = course.Description;
             editCourseViewModel.OwnerId = course.OwnerId;
@@ -277,6 +293,7 @@ namespace Skilldemy.Controllers
             return View("EditCourse", editCourseViewModel);
         }
 
+        [HttpPost]
         public ActionResult EditCourse(EditCourseViewModel editCourseViewModel)
         {
             if (!ModelState.IsValid)
@@ -284,7 +301,7 @@ namespace Skilldemy.Controllers
                 return View(editCourseViewModel);
             }
 
-            Course course = _context.Courses.FirstOrDefault(c => c.Id == editCourseViewModel.Id);
+            Course course = _context.Courses.FirstOrDefault(c => c.Id == editCourseViewModel.CourseId);
 
             var currentUserId = User.Identity.GetUserId();
             var user = _context.Users.FirstOrDefault(u => u.Id == currentUserId);
@@ -300,7 +317,7 @@ namespace Skilldemy.Controllers
             if (editCourseViewModel.ImageFile != null)
             {
                 Image image = new Image();
-                image = _context.Images.FirstOrDefault(i => i.CourseId == image.CourseId);
+                image = _context.Images.FirstOrDefault(i => i.CourseId == course.Id);
 
                 byte[] uploadedImage = new byte[editCourseViewModel.ImageFile.InputStream.Length];
                 editCourseViewModel.ImageFile.InputStream.Read(uploadedImage, 0, uploadedImage.Length);
@@ -313,7 +330,7 @@ namespace Skilldemy.Controllers
             if (editCourseViewModel.PreviewVideoFile != null)
             {
                 Video previewVideo = new Video();
-                previewVideo = _context.Videos.FirstOrDefault(v => v.CourseId == previewVideo.CourseId);
+                previewVideo = _context.Videos.FirstOrDefault(v => v.CourseId == course.Id);
 
                 byte[] uploadedVideo = new byte[editCourseViewModel.PreviewVideoFile.InputStream.Length];
                 editCourseViewModel.PreviewVideoFile.InputStream.Read(uploadedVideo, 0, uploadedVideo.Length);

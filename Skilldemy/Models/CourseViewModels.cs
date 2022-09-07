@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -22,7 +23,9 @@ namespace Skilldemy.Models
 
         [Required]
         [Display(Name = "Cena")]
-        [Range(0, 2000, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią, oraz nie może przekraczać 2000 zł")]
+        [Range(1, 2000)]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
         public string HtmlAndJs { get; set; }
@@ -83,6 +86,8 @@ namespace Skilldemy.Models
     {
         public int Id { get; set; }
 
+        public int CourseId { get; set; }
+
         [Required]
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
@@ -95,7 +100,9 @@ namespace Skilldemy.Models
 
         [Required]
         [Display(Name = "Cena")]
-        [Range(0, 2000, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią, oraz nie może przekraczać 2000 zł")]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
+        [Range(1, 2000, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią, oraz nie może przekraczać 2000 zł")]
         public decimal Price { get; set; }
 
         public string HtmlAndJs { get; set; }

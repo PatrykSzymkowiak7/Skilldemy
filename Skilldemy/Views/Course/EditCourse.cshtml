@@ -20,7 +20,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Description)
         </div>
     </div>
@@ -47,7 +47,7 @@
             @Html.ValidationMessageFor(m => m.Price)
         </div>
     </div>
-    <img src='@Url.Action("ShowImage", "Course", new { id = Model.Id })' width="275" height="183" />
+    <img src='@Url.Action("ShowImage", "Course", new { id = Model.CourseId })' width="275" height="183" />
     <div class="form-group">
         @Html.LabelFor(m => m.ImageFile, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -55,8 +55,8 @@
             @Html.ValidationMessageFor(m => m.ImageFile)
         </div>
     </div>
-    <video controls autoplay oncontextmenu="return false;" controlsList="nodownload">
-        <source src='@Url.Action("ShowPreviewVideoEdit", "Course", new { id = Model.Id })' type="video/mp4" width="150px" height="150px" />
+    <video controls oncontextmenu="return false;" controlsList="nodownload">
+        <source src='@Url.Action("ShowPreviewVideoEdit", "Course", new { id = Model.CourseId })' type="video/mp4" width="150px" height="150px" />
     </video>
     <div class="form-group">
         @Html.LabelFor(m => m.PreviewVideoFile, new { @class = "col-md-2 control-label" })
@@ -66,6 +66,7 @@
         </div>
     </div>
     <br />
+    @Html.HiddenFor(m => m.CourseId)
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             @Html.ActionLink("Wróć", "MyCourses", "Course")
@@ -76,10 +77,10 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script type="text/javascript">
-    function changeToDot() {
-        let price = document.getElementById("Price");
-        price.nodeValue.replace(/,/g, '.');
-    }
-</script>
+    <script type="text/javascript">
+        function changeToDot() {
+            let price = document.getElementById("Price");
+            price.nodeValue.replace(/,/g, '.');
+        }
+    </script>
 }

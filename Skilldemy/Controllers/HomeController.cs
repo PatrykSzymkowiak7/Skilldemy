@@ -20,7 +20,7 @@ namespace Skilldemy.Controllers
         public ActionResult Index()
         {
             List<Object> model = new List<Object>();
-            List<Course> courses = new List<Course>(_context.Courses.Where(c => c.IsVisible == true));
+            List<Course> courses = new List<Course>(_context.Courses.Where(c => c.IsVisible == true)).ToList();
             List<Image> images = _context.Images.ToList();
 
             model.Add(courses);
