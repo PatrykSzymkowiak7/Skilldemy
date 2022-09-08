@@ -393,6 +393,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Api\" />
+    <Folder Include="Images\" />
     <Folder Include="UserFiles\" />
   </ItemGroup>
   <ItemGroup>
