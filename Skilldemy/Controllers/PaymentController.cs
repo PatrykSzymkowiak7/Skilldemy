@@ -44,8 +44,6 @@ namespace Skilldemy.Controllers
             string description = paymentPreparation.Description.Replace(" ", "%20");
             paymentPreparation.Name = String.Format("{0}%20{1}", paymentPreparation.FirstName, paymentPreparation.LastName);
             string implode = String.Format("{0}&{1}&{2}&{3}", paymentPreparation.Id.ToString(), amount, paymentPreparation.Crc.ToString(), paymentPreparation.Code);
-            paymentPreparation.Return_url = Url.Action("PaymentSuccess", "Payment", new { courseId = paymentPreparation.Crc, emailAddress = paymentPreparation.EmailAddress }, this.Request.Url.Scheme);
-            paymentPreparation.Return_error_url = Url.Action("PaymentFailure", "Payment", new { courseId = paymentPreparation.Crc, emailAddress = paymentPreparation.EmailAddress }, this.Request.Url.Scheme);
 
             byte[] source;
             byte[] hash;
@@ -57,6 +55,18 @@ namespace Skilldemy.Controllers
                 hashToHex.Append(hash[i].ToString("X2"));
             }
             string md5sum = hashToHex.ToString().ToLower();
+
+            Guid guid = Guid.NewGuid();
+            string guidStr = guid.ToString();
+
+            Payment payment = new Payment();
+            payment.CourseId = paymentPreparation.Crc;
+            payment.Date = DateTime.Now;
+            payment.EmailAddress = paymentPreparation.EmailAddress;
+            payment.UUID = guidStr;
+
+            paymentPreparation.Return_url = Url.Action("PaymentSuccess", "Payment", new { UUID = payment.UUID }, this.Request.Url.Scheme);
+            paymentPreparation.Return_error_url = Url.Action("PaymentFailure", "Payment", new { UUID = payment.UUID }, this.Request.Url.Scheme);
 
             StringBuilder link = new StringBuilder();
             link.Append("https://secure.tpay.com");
@@ -73,13 +83,13 @@ namespace Skilldemy.Controllers
             return Redirect(link.ToString());
         }
 
-        public ActionResult PaymentSuccess(int courseId, string emailAddress)
+        public ActionResult PaymentSuccess(string UUID)
         {
             PaymentViewModel paymentViewModel = new PaymentViewModel();
             return View("PaymentSuccess", paymentViewModel);
         }
 
-        public ActionResult PaymentFailure()
+        public ActionResult PaymentFailure(string UUID)
         {
             return View();
         }
