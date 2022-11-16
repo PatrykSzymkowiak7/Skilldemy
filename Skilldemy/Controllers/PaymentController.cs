@@ -88,7 +88,26 @@ namespace Skilldemy.Controllers
 
         public ActionResult PaymentSuccess(string UUID)
         {
-            return View("PaymentSuccess");
+            Payment payment = _context.Payments.FirstOrDefault(p => p.UUID.Contains(UUID) && p.PaymentStatus == null);
+            Course course = _context.Courses.FirstOrDefault(c => c.Id == payment.CourseId);
+
+            payment.PaymentStatus = "Success";
+            _context.SaveChanges();
+
+            string ownerEmail = "skilldemy@srv46158.seohost.com.pl";
+            string link = "http://skilldemy.azurewebsites.net/Course/";
+
+            SmtpClient client = new SmtpClient("h22.seohost.pl");
+            client.Credentials = new NetworkCredential(ownerEmail, "Test12345@");
+
+            MailMessage mailMessage = new MailMessage(ownerEmail, payment.EmailAddress);
+            mailMessage.Subject = "Kurs został pomyślnie zakupiony!";
+            mailMessage.Body = String.Format("Dziękujemy za zakup kursu: {0}\n" +
+                "Dostęp do treści możliwy jest po wejściu w link: {1}{2}", course.Title, link, payment.UUID);
+
+            client.Send(mailMessage);
+
+            return View("PaymentSuccess", payment);
         }
 
         public ActionResult PaymentFailure(string UUID)
