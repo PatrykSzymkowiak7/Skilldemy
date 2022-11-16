@@ -1,0 +1,4 @@
+C:\TPay test api\src\Org.OpenAPITools\obj\Debug\Org.OpenAPITools.csproj.AssemblyReference.cache
+C:\TPay test api\src\Org.OpenAPITools\obj\Debug\Org.OpenAPITools.csproj.CoreCompileInputs.cache
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\obj\Debug\Org.OpenAPITools.csproj.AssemblyReference.cache
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\obj\Debug\Org.OpenAPITools.csproj.CoreCompileInputs.cache

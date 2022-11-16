@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Skilldemy.Models;
 using Skilldemy.Helpers;
+using System.Net.Mail;
+using System.Net;
 
 namespace Skilldemy.Controllers
 {
@@ -229,7 +231,7 @@ namespace Skilldemy.Controllers
         {
             Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
 
-            if(course.IsVisible)
+            if (course.IsVisible)
             {
                 course.IsVisible = false;
             }

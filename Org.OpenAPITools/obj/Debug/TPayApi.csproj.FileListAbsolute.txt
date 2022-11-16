@@ -1,0 +1,13 @@
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\Org.OpenAPITools.dll.config
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\Org.OpenAPITools.xml
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\Org.OpenAPITools.dll
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\Org.OpenAPITools.pdb
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\JsonSubTypes.dll
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\Newtonsoft.Json.dll
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\RestSharp.dll
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\Newtonsoft.Json.xml
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\bin\Debug\RestSharp.xml
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\obj\Debug\TPayApi.csproj.CoreCompileInputs.cache
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\obj\Debug\TPayApi.csproj.CopyComplete
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\obj\Debug\Org.OpenAPITools.dll
+C:\Skilldemy nightly\Skilldemy\Org.OpenAPITools\obj\Debug\Org.OpenAPITools.pdb
