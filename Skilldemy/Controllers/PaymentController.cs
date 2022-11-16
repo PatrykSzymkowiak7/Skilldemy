@@ -80,13 +80,15 @@ namespace Skilldemy.Controllers
             link.Append("&crc=" + paymentPreparation.Crc.ToString());
             link.Append("&md5sum=" + md5sum);
 
+            _context.Payments.Add(payment);
+            _context.SaveChanges();
+
             return Redirect(link.ToString());
         }
 
         public ActionResult PaymentSuccess(string UUID)
         {
-            PaymentViewModel paymentViewModel = new PaymentViewModel();
-            return View("PaymentSuccess", paymentViewModel);
+            return View("PaymentSuccess");
         }
 
         public ActionResult PaymentFailure(string UUID)

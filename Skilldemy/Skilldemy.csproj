@@ -323,9 +323,9 @@
     <Compile Include="Migrations\202208141433185_Update_Ceny_Z_Double_Na_Decimal.designer.cs">
       <DependentUpon>202208141433185_Update_Ceny_Z_Double_Na_Decimal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202211161754565_PaymentModel.cs" />
-    <Compile Include="Migrations\202211161754565_PaymentModel.designer.cs">
-      <DependentUpon>202211161754565_PaymentModel.cs</DependentUpon>
+    <Compile Include="Migrations\202211161759504_PaymentModel.cs" />
+    <Compile Include="Migrations\202211161759504_PaymentModel.designer.cs">
+      <DependentUpon>202211161759504_PaymentModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -483,8 +483,8 @@
     <EmbeddedResource Include="Migrations\202208141433185_Update_Ceny_Z_Double_Na_Decimal.resx">
       <DependentUpon>202208141433185_Update_Ceny_Z_Double_Na_Decimal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211161754565_PaymentModel.resx">
-      <DependentUpon>202211161754565_PaymentModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202211161759504_PaymentModel.resx">
+      <DependentUpon>202211161759504_PaymentModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
