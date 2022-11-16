@@ -112,7 +112,11 @@ namespace Skilldemy.Controllers
 
         public ActionResult PaymentFailure(string UUID)
         {
-            return View();
+            Payment payment = _context.Payments.FirstOrDefault(p => p.UUID.Contains(UUID) && p.PaymentStatus == null);
+            payment.PaymentStatus = "Failure";
+            _context.SaveChanges();
+
+            return View("PaymentFailure", payment);
         }
     }
 }
