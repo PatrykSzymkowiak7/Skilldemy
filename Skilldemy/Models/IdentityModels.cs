@@ -42,6 +42,10 @@ namespace Skilldemy.Models
 
         public DbSet<Payment> Payments { get; set; }
 
+        public DbSet<UUIDConnection> UUIDConnections { get; set; }
+
+        public DbSet<CourseEntry> CourseEntries { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

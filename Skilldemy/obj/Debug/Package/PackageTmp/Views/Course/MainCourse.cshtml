@@ -1,0 +1,53 @@
+﻿@model Skilldemy.Models.CourseBoughtViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var previewVideo = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
+    var messySectionsList = Model.Videos.Where(m => m.IsPreviewVideo != true);
+    var sortedSectionList = messySectionsList.OrderBy(m => m.UploadedDate);
+
+}
+
+<div class="course-availables">
+    <h2>@Model.Course.Title</h2>
+</div>
+
+<div class="main-course-wrapper">
+    <div class="main-course-left">
+        @if (Model.VideoToShow == null)
+        {
+            <video controls oncontextmenu="return false;" controlsList="nodownload">
+                <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" style="width:300px;height:300px" id="mainVideo" />
+            </video>
+        }
+        else
+        {
+            <video controls oncontextmenu="return false;" controlsList="nodownload">
+                <source src='@Url.Action("ShowVideo", "Course", new { id = Model.VideoToShow })' type="video/mp4" style="width:300px;height:300px" id="mainVideo" />
+            </video>
+        }
+    </div>
+    <div class="main-course-right">
+        @foreach (var fetchedSection in sortedSectionList)
+        {
+            <a href="@Url.Action("ShowSectionVideo", "Course", new { id = Model.Course.Id, videoId = fetchedSection.Id })">
+                <div class="@fetchedSection.Id main-course-section-title">
+                    @fetchedSection.SectionTitle
+                </div>
+            </a>
+                <div class="@fetchedSection.Id main-course-section-description">
+                    @fetchedSection.SectionDescription
+                </div>
+                }
+        </div>
+</div>
+<div class="bottom-course-description">
+    @Model.Course.Description
+</div>
+@section Scripts
+{
+
+}

@@ -1,0 +1,11 @@
+﻿@model Skilldemy.Models.Payment
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1> Płatność zakończona pomyślnie! na twój adres mailowy @Model.EmailAddress została przesłana wiadomość z linkiem dostępowym!</h1>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -94,10 +94,21 @@ namespace Skilldemy.Controllers
             Course course = _context.Courses.FirstOrDefault(c => c.Id == payment.CourseId);
 
             payment.PaymentStatus = "Success";
+
+            UUIDConnection uuidConnection = new UUIDConnection
+            {
+                CourseId = payment.CourseId,
+                PaymentId = payment.Id,
+                UUID = UUID
+            };
+
+            _context.UUIDConnections.Add(uuidConnection);
             _context.SaveChanges();
 
             string ownerEmail = "skilldemy@srv46158.seohost.com.pl";
-            string link = "http://skilldemy.azurewebsites.net/Course/";
+            StringBuilder link = new StringBuilder();
+            link.Append("http://skilldemy.azurewebsites.net");
+            link.Append(Url.Action("ShowBoughtCourse", "Course", new { id = course.Id, uuid = UUID }));
 
             SmtpClient client = new SmtpClient("h22.seohost.pl");
             client.Credentials = new NetworkCredential(ownerEmail, "Test12345@");
@@ -105,7 +116,7 @@ namespace Skilldemy.Controllers
             MailMessage mailMessage = new MailMessage(ownerEmail, payment.EmailAddress);
             mailMessage.Subject = "Kurs został pomyślnie zakupiony!";
             mailMessage.Body = String.Format("Dziękujemy za zakup kursu: {0}\n" +
-                "Dostęp do treści możliwy jest po wejściu w link: {1}{2}", course.Title, link, payment.UUID);
+                "Dostęp do treści możliwy jest po wejściu w link: {1}", course.Title, link);
 
             client.Send(mailMessage);
 

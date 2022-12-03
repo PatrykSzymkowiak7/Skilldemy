@@ -1,0 +1,105 @@
+﻿@model List<Object>
+@using Skilldemy.Models;
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+@{
+    List<Course> courses = new List<Course>();
+    List<Image> images = new List<Image>();
+    foreach (object obj in Model)
+    {
+        if (obj is List<Course>)
+        {
+            courses = (List<Course>)obj;
+        }
+        else
+        {
+            images = (List<Image>)obj;
+        }
+    }
+}
+@foreach (var course in courses)
+{
+    string categoryName = String.Empty;
+    switch (course.CategoryId)
+    {
+        case 1:
+            categoryName = "Programowanie";
+            break;
+        case 2:
+            categoryName = "Grafika komputerowa";
+            break;
+        case 3:
+            categoryName = "Biznes";
+            break;
+        case 4:
+            categoryName = "Finanse";
+            break;
+        case 5:
+            categoryName = "Gastronomia";
+            break;
+        case 6:
+            categoryName = "Języki obce";
+            break;
+        default:
+            categoryName = String.Empty;
+            break;
+    }
+    <a href="@Url.Action("CoursePreview", "Course", new { id = course.Id })">
+        <div class="course-wrapper">
+            @{ var courseImage = images.FirstOrDefault(i => i.CourseId == course.Id);
+                if (courseImage != null)
+                {
+                    if (courseImage.ImageFile != null)
+                    {
+                        <div class="course-left">
+                            <img src='@Url.Action("ShowImage", "Course", new { id = courseImage.Id })' width="275" height="183" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="course-left">
+                            <img src="data:image/jpeg;base64" width="275" height="183">
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="course-left">
+                        <img src="data:image/jpeg;base64" width="275" height="183">
+                    </div>
+                }
+            }
+            <div class="course-right">
+                @{
+                    <span class="course-title">@course.Title</span><br />
+                    <span class="course-title">@course.Description</span><br />
+                    <span class="course-title">@course.Rating</span> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/768px-Gold_Star.svg.png" width="15" height="15" />
+                    <span class="course-title">@course.Reviews</span><br />
+                    <span class="course-title">@course.Difficulty</span><br />
+                    <span class="course-title">@categoryName</span><br />
+                    <span class="course-title">@course.Price zł</span><br />
+                    <span class="course-title">@course.OwnerUserName</span><br />
+                }
+            </div>
+        </div>
+    </a>
+    <br />
+    @Html.ActionLink("Zmień widoczność", "SetVisibility", "Course", new { id = course.Id }, "")
+    string isVisible = String.Empty;
+    if (course.IsVisible)
+    {
+        isVisible = "Obecnie kurs jest widoczny dla innych użytkowników";
+        <div class="visibility-danger" style="color: green;">@isVisible</div>
+    }
+    else
+    {
+        isVisible = "Obecnie kurs jest niewidoczny dla innych użytkowników";
+        <div class="visibility-danger" style="color:red;">@isVisible</div>
+    }
+    <br />
+    @Html.ActionLink("Edytuj kurs", "EditCourseRedirect", "Course", new { id = course.Id }, "")<br />
+    @Html.ActionLink("Usun kurs", "DeleteCourse", "Course", new { id = course.Id }, "")<br />
+}

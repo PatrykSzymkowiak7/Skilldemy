@@ -327,8 +327,14 @@
     <Compile Include="Migrations\202211161759504_PaymentModel.designer.cs">
       <DependentUpon>202211161759504_PaymentModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211301544595_UUIDEntries.cs" />
+    <Compile Include="Migrations\202211301544595_UUIDEntries.designer.cs">
+      <DependentUpon>202211301544595_UUIDEntries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CourseEntry.cs" />
+    <Compile Include="Models\UUIDConnection.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CategoryDDLValidation.cs" />
@@ -417,6 +423,8 @@
     <Content Include="Views\Payment\PreparePayment.cshtml" />
     <Content Include="Views\Payment\PaymentSuccess.cshtml" />
     <Content Include="Views\Payment\PaymentFailure.cshtml" />
+    <Content Include="Views\Course\MainCourse.cshtml" />
+    <Content Include="Views\Course\EntriesExceeded.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\" />
@@ -485,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211161759504_PaymentModel.resx">
       <DependentUpon>202211161759504_PaymentModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211301544595_UUIDEntries.resx">
+      <DependentUpon>202211301544595_UUIDEntries.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

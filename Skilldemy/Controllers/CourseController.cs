@@ -113,7 +113,7 @@ namespace Skilldemy.Controllers
             // "The underlying provider failed on Open" if it happens too fast
             // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
             var task = Task.Delay(1000).ContinueWith(t => Console.WriteLine(DateTime.Now));
-            List<Image> images = (_context.Images.Where(i => i.Id == id)).ToList();
+            List<Image> images = _context.Images.Where(i => i.Id == id).ToList();
             Image image = images.FirstOrDefault();
             task.Wait();
 
@@ -382,6 +382,60 @@ namespace Skilldemy.Controllers
             }
 
             return null;
+        }
+
+        public ActionResult ShowBoughtCourse(int? id, string uuid)
+        {
+            if (id == null)
+            {
+                return View("Index");
+            }
+            else if(uuid == null)
+            {
+                return View("Index");
+            }
+
+            UUIDConnection uuidConnection = _context.UUIDConnections.FirstOrDefault(u => u.UUID == uuid);
+            List<CourseEntry> entriesSoFar = _context.CourseEntries.Where(e => e.UUID == uuid).ToList<CourseEntry>();
+
+            if(entriesSoFar.Count < 3 || uuid == "f77fb9bf-8fdd-45bd-b67c-6d87bc09f992")
+            {
+                CourseEntry courseEntry = new CourseEntry
+                {
+                    UUID = uuid,
+                    CourseId = id.Value,
+                    EntryTime = DateTime.Now
+                };
+
+                CourseBoughtViewModel courseBoughtViewModel = new CourseBoughtViewModel();
+                Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
+                List<Video> videos = (_context.Videos.Where(v => v.CourseId == id)).ToList();
+
+                courseBoughtViewModel.Course = course;
+                courseBoughtViewModel.Videos = videos;
+
+                _context.CourseEntries.Add(courseEntry);
+                _context.SaveChanges();
+                return View("MainCourse", courseBoughtViewModel);
+            }
+            else
+            {
+                return View("EntriesExceeded");
+            }
+        }
+
+        public ActionResult ShowSectionVideo(int? id, int videoId)
+        {
+            CourseBoughtViewModel courseBoughtViewModel = new CourseBoughtViewModel();
+            Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            List<Video> videos = (_context.Videos.Where(v => v.CourseId == id)).ToList();
+            var video = videos.FirstOrDefault(i => i.Id == videoId);
+
+            courseBoughtViewModel.Course = course;
+            courseBoughtViewModel.Videos = videos;
+            courseBoughtViewModel.VideoToShow = videoId;
+
+            return View("MainCourse", courseBoughtViewModel);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Skilldemy.Models
 {
@@ -80,6 +81,7 @@ namespace Skilldemy.Models
     {
         public Course Course;
         public List<Video> Videos;
+        public int VideoToShow;
     }
 
     public class EditCourseViewModel

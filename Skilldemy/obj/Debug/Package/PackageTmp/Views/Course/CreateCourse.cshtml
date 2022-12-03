@@ -1,0 +1,75 @@
+﻿@model Skilldemy.Models.CreateCourseViewModel
+@{
+    ViewBag.Title = "Utwórz kurs";
+}
+
+<h2>@ViewBag.Title</h2> 
+
+@using (Html.BeginForm("CreateCourse", "Course", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Title)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Description)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CategoryId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CategoryId,
+                    new List<SelectListItem> {
+                        new SelectListItem { Value = "0" , Text = "-- Wybierz --" },
+                        new SelectListItem { Value = "1" , Text = "Programowanie" },
+                        new SelectListItem { Value = "2" , Text = "Grafika komputerowa" },
+                        new SelectListItem { Value = "3" , Text = "Biznes" },
+                        new SelectListItem { Value = "4" , Text = "Finanse" },
+                        new SelectListItem { Value = "5" , Text = "Gastronomia" },
+                        new SelectListItem { Value = "6" , Text = "Języki obce" }
+                    }, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CategoryId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Price)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageFile, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+            @Html.ValidationMessageFor(m => m.ImageFile)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PreviewVideoFile, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PreviewVideoFile, new { type = "file" })
+            @Html.ValidationMessageFor(m => m.PreviewVideoFile)
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Wróć", "Index", "Manage")
+            <input type="submit" class="btn btn-default" value="Utwórz kurs" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
