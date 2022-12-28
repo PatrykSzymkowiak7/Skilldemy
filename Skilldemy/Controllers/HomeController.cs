@@ -16,8 +16,12 @@ namespace Skilldemy.Controllers
         {
             _context = new ApplicationDbContext();
         }
-
         public ActionResult Index()
+        {
+            return View("Index");
+        }
+
+        public ActionResult CourseList()
         {
             List<Object> model = new List<Object>();
             List<Course> courses = new List<Course>(_context.Courses.Where(c => c.IsVisible == true)).ToList();
@@ -26,7 +30,7 @@ namespace Skilldemy.Controllers
             model.Add(courses);
             model.Add(images);
 
-            return View(model);
+            return View("CourseList", model);
         }
 
         public ActionResult SearchByText(string searchPhrase)
@@ -90,7 +94,7 @@ namespace Skilldemy.Controllers
             model.Add(images);
 
             _context.Database.Connection.Close();
-            return View("Index", model);
+            return View("CourseList", model);
         }
 
         public ActionResult SortCourses(string sortBy)
@@ -107,7 +111,7 @@ namespace Skilldemy.Controllers
                 model.Add(courses);
                 model.Add(allImages);
 
-                return View("Index", model);
+                return View("CourseList", model);
             }
 
             if(sortBy == "Popularity")
@@ -139,13 +143,13 @@ namespace Skilldemy.Controllers
                 model.Add(coursesFiltered);
                 model.Add(images);
 
-                return View("Index", model);
+                return View("CourseList", model);
             }
 
             model.Add(courses);
             model.Add(allImages);
 
-            return View("Index", model);
+            return View("CourseList", model);
         }
     }
 }

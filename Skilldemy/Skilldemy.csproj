@@ -425,6 +425,7 @@
     <Content Include="Views\Payment\PaymentFailure.cshtml" />
     <Content Include="Views\Course\MainCourse.cshtml" />
     <Content Include="Views\Course\EntriesExceeded.cshtml" />
+    <Content Include="Views\Home\CourseList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\" />
