@@ -426,6 +426,7 @@
     <Content Include="Views\Course\MainCourse.cshtml" />
     <Content Include="Views\Course\EntriesExceeded.cshtml" />
     <Content Include="Views\Home\CourseList.cshtml" />
+    <Content Include="Views\Shared\_LayoutCourseListView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\" />
