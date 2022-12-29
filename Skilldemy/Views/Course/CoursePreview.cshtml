@@ -36,7 +36,9 @@
 <div class="bottom-course-description">
     @Model.Course.Description
 </div>
-@Html.ActionLink("Zakup kurs", "PreparePayment", "Payment", new { courseId = Model.Course.Id, courseName = Model.Course.Title, price = Model.Course.Price }, null)
+<a href="@Url.Action("PreparePayment", "Payment", new { courseId = Model.Course.Id, courseName = Model.Course.Title, price = Model.Course.Price })">
+    <button>Zakup kurs</button>
+</a>
 @section Scripts
 {
     <!--

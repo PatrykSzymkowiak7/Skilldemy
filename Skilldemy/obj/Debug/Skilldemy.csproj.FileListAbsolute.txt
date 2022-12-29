@@ -327,3 +327,4 @@ C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\System.Threading.Tasks.Extensions.x
 C:\Skilldemy nightly\Skilldemy\Skilldemy\bin\System.ValueTuple.xml
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.PaymentModel.resources
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.UUIDEntries.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.AssemblyReference.cache
