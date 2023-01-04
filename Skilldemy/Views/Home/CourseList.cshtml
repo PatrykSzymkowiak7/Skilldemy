@@ -23,13 +23,13 @@
 <div class="searchBar">
     Sortuj po</br>
     <a href="@Url.Action("SortCourses", "Home", new { sortBy = "Popularity" })">
-        <button>Popularne</button>
+        <button class="btn btn-default">Popularne</button>
     </a></br>
     <a href="@Url.Action("SortCourses", "Home", new { sortBy = "Newest" })">
-        <button>Nowe</button>
+        <button class="btn btn-default">Nowe</button>
     </a></br>
     <a href="@Url.Action("CourseList", "Home")">
-        <button>Domyślnie</button>
+        <button class="btn btn-default">Domyślnie</button>
     </a>
 </div>
 @foreach (var course in courses)

@@ -37,7 +37,7 @@
     @Model.Course.Description
 </div>
 <a href="@Url.Action("PreparePayment", "Payment", new { courseId = Model.Course.Id, courseName = Model.Course.Title, price = Model.Course.Price })">
-    <button>Zakup kurs</button>
+    <button class="btn btn-default">Zakup kurs</button>
 </a>
 @section Scripts
 {
