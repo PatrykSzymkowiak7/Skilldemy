@@ -38,9 +38,11 @@
             </div>
             @Html.HiddenFor(m => m.CourseId)
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Wróć", "Index", "Manage")
-                <input type="submit" id="sectionSubmit" class="btn btn-default" value="Dodaj sekcję" />
-            </div>
+            <a href="@Url.Action("Index", "Manage")">
+                <button>Wróć</button>
+            </a>
+            <input type="submit" id="sectionSubmit" class="btn btn-default" value="Dodaj sekcję" />
+        </div>
         </div>
     }
 </div>
@@ -50,8 +52,12 @@
         <div class="modal-content" style="display: block !important; filter: blur(0px) !important;">
             <div class="modal-body" style="display: block !important; filter: blur(0px) !important; ">
                 <h2> Sekcja utworzona! </h2>
-                @Html.ActionLink("Zakończ", "Index", "Manage")&nbsp
-                @Html.ActionLink("Dodaj kolejną sekcję", "AddAnotherSection", new { id = Model.CourseId })
+                <a href="@Url.Action("Index", "Manage")">
+                    <button>Zakończ</button>
+                </a>&nbsp
+                <a href="@Url.Action("AddAnotherSection", "Course", new { id = Model.CourseId })">
+                    <button>Dodaj kolejną sekcję</button>
+                </a>
             </div>
         </div>
     </div>
