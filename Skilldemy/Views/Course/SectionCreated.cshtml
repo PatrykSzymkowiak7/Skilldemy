@@ -51,13 +51,25 @@
     <div class="modal-dialog" style="display: block !important; filter: blur(0px) !important; ">
         <div class="modal-content" style="display: block !important; filter: blur(0px) !important;">
             <div class="modal-body" style="display: block !important; filter: blur(0px) !important; ">
-                <h2> Sekcja utworzona! </h2>
-                <a href="@Url.Action("Index", "Manage")">
-                    <button class="btn btn-default">Zakończ</button>
-                </a>&nbsp
-                <a href="@Url.Action("AddAnotherSection", "Course", new { id = Model.CourseId })">
-                    <button class="btn btn-default">Dodaj kolejną sekcję</button>
-                </a>
+                <div class="modal-body-top">
+                    <h2> Sekcja utworzona! </h2>
+                </div>
+                <div class="tick">
+
+                </div>
+                <div class="float-container">
+                    <div class="btn-popup">
+                        <a href="@Url.Action("AddAnotherSection", "Course", new { id = Model.CourseId })">
+                            <button class="button-style">Następna sekcja</button>
+                        </a>&nbsp&nbsp
+                    </div>
+                    <div class="btn-popup">
+                        <a href="@Url.Action("Index", "Manage")">
+                            <button class="button-style">Zakończ dodawanie</button>
+                        </a>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

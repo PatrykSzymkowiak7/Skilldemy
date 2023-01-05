@@ -6022,13 +6022,55 @@ button.close {
   line-height: 1.42857143;
 }
 .modal-body {
-  position: relative;
-  padding: 15px;
+    position: relative;
+    padding: 15px;
+    text-align: center;
+    font-family: Verdana;
+    color: slategrey;
 }
+
+.modal-body-top {
+   text-align:center;
+}
+
+.tick {
+    background-image: url(/UserFiles/tickpicture.png);
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    padding: 20px;
+    background-repeat: no-repeat;
+  
+}
+
+.button-style {
+    background-color: slategrey; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+.float-container {
+    display: flex;
+}
+
+.btn-popup {
+    flex: 1;
+}
+
+.float-container:first-child {
+    margin-right: 20px;
+}
+
 .modal-footer {
-  padding: 15px;
-  text-align: right;
-  border-top: 1px solid #e5e5e5;
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
