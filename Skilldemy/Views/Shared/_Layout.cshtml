@@ -11,47 +11,81 @@
 </head>
 <body>
     <div class="container-top">
+        @Html.Partial("_NavBar")
     </div>
-    @Html.Partial("_NavBar")
     <div class="container body-content">
         @RenderBody()
     </div>
+    <div class="container-body-top">
+    </div>    
     <div class="container-contact">
-        <p>contact us</p>
+        <p>Kontakt</p>
 
         <div class="login">
-            <input type="text" class="input-login" placeholder="Name" />
+            <input type="text" class="input-login" placeholder="Imię" />
             <input type="text" class="input-mail" placeholder="E-mail" />
         </div>
 
         <div class="topic">
-            <input type="text" class="input-topic" placeholder="Topic" />
+            <input type="text" class="input-topic" placeholder="Temat" />
         </div>
 
         <div class="msng">
-            <textarea class="area" placeholder="Start typing..."></textarea>
+            <textarea class="area" placeholder="Opis"></textarea>
         </div>
 
-        <div class="bttn">send Message</div>
+        <div class="bttn">Wyślij wiadomość</div>
     </div>
     <div class="bottom">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.146994739298!2d16.920377615803137!3d52.404012079792466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b309dae6ae9%3A0x835a1af76866d48b!2sWy%C5%BCsza%20Szko%C5%82a%20Bankowa%20w%20Poznaniu!5e0!3m2!1sen!2spl!4v1662576977248!5m2!1sen!2spl" class="loc-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+    <div class="container-body-bottom">
 
+    </div>
     <footer>
         <div class="footer-content">
-            <h3>Footer</h3>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat non purus sed convallis.</p>
-            <ul class="socials">
-                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-            </ul>
+            <div class="footer-container">
+                <div class="footer">
+                    <div class="footer-logo">
+                        <img src="/UserFiles/logo.png" alt="logo" width="300" height="300" />
+                    </div>
+                    <div class="footer-heading footer-2">
+                        <h3>Dane kontaktowe</h3>
+                        Skilldemy<br>
+                        ul Powstańców Wielkopolskich 5<br>
+                        61-895 Poznań<br>
+                        NIP: 7781423778<br>
+                        Telefon: 61 655 33 33
+                    </div>
+                    <div class="footer-heading footer-3">
+                        <h3>Skilldemy</h3>
+                        <a href="#">O nas</a>
+                        <a href="#">Aktualności</a>
+                        <a href="#">Oferta</a>
+                        <a href="#">Kariera</a>
+                    </div>
+                    <div class="footer-heading footer-4">
+                        <h3>Pomoc</h3>
+                        <a href="#">O kursach</a>
+                        <a href="#">Opinie klientów</a>
+                        <a href="#">Kontakt</a>
+                        <a href="#"></a>
+                    </div>
+                    <div class="footer-heading footer-5">
+                        <h3>Social Media</h3>
+                        <ul class="socials">
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; @DateTime.Now.Year </p>
+            <p>&copy; @DateTime.Now.Year Skilldemy | All Rights Reserved.</p>
         </div>
 
     </footer>

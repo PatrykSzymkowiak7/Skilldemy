@@ -5939,7 +5939,7 @@ button.close {
   border: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  -appearance: none;
 }
 .modal-open {
   overflow: hidden;
@@ -6022,8 +6022,27 @@ button.close {
   line-height: 1.42857143;
 }
 .modal-body {
+  height: auto;
+  color: red;
+  text-align: center;
   position: relative;
   padding: 15px;
+}
+
+.btn btn-default{
+  background-color: #e7e7e7;
+  color: black;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.modal-body-picture{
+  background-image: url(/UserFiles/tickpopup.png); 
+  height: 360px;
+  width: 360px;
 }
 .modal-footer {
   padding: 15px;

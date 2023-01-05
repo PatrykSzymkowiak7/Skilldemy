@@ -12,8 +12,10 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h2> Sekcja utworzona! </h2>
+                <div class="modal-body-picture">
+                </div>
                 <a href="@Url.Action("Index", "Manage")">
-                    <button>Zakończ</button>
+                    <button class="chuj" >Zakończ</button>
                 </a>&nbsp
                 <a href="@Url.Action("AddAnotherSection", "Course", new { id = Model.CourseId })">
                     <button>Dodaj kolejną sekcję</button>
