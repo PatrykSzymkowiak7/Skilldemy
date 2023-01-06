@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 15px;
+    padding-top: 0px;
     padding-bottom: 0px;
 }
 
@@ -86,49 +86,36 @@ textarea {
 .input-validation-error{
     border: 2px solid red;
 }
+
 /* Navbar*/
 .navbar {
+    background-color: #0c0c0c;
+    width: auto;
     margin: 0px auto;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-.navbar-menu {
-  overflow: hidden;
-  background-color: #0c0c0c;
-  font-family: Verdana;
-}
-
-.navbar-menu a {
-  float: left;
-  font-size: 14px;
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: red;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
+  padding: 16px;
   font-size: 14px;
   border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
+  cursor: pointer;
 }
 
-/* Add a red background color to navbar links on hover */
-.navbar-menu a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-/* Dropdown content */
+/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #0c0c0c;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -136,26 +123,31 @@ textarea {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  float: none;
-  color: black;
+  background-color: #0c0c0c;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
+/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+    background-color: #c31a1a;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #c31a1a;
+}
+
 .navbar-search
 {
-    width: 300px;
+    width: 400px;
     border-radius: 5px;
     text-align: left;
     margin-top: 15px;
@@ -330,7 +322,7 @@ textarea {
 
 
 .loc-map {
-    width: 100%;
+    width: 20%;
     height: 400px;
     -webkit-box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
@@ -368,10 +360,10 @@ footer {
     padding-right: 20px;
 }
 .footer-heading{
-    width: 12%;
+    width: 15%;
     display: flex;
     flex-direction: column;
-    margin-left: 4rem;
+    margin-right: 4rem;
 }
 
 .footer-heading a {
@@ -414,11 +406,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0 3rem 0;
+    margin: 0px;
 }
 
 .socials li{
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .socials a {
@@ -427,7 +419,7 @@ footer {
 }
 
 .socials a i{
-    font-size: 20px;
+    font-size: 25px;
     transition: color .4s ease;
 }
 
