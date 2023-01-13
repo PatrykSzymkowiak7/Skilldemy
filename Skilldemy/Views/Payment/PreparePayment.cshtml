@@ -1,8 +1,8 @@
 ﻿@model Skilldemy.Models.PaymentViewModel
 
 @{
+    Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
     ViewBag.Title = "Przygotuj płatność";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using (Html.BeginForm("CreatePayment", "Payment", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
