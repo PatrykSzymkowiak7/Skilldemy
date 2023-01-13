@@ -30,10 +30,9 @@
                 </div>
             </div>
         </div>
-
-        <input id="SearchByText" class="navbar-search" value="Wyszukaj" type="text"
-                onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
-        <a onclick="changeHref();"><img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" style="width: 20px" /></a>
+        <input class="navbar-search" id="SearchByText" value="Wyszukaj" type="text"
+               onfocus="if(this.value == 'Wyszukaj') {this.value=''}" onblur="if(this.value == ''){this.value ='Wyszukaj'}">
+        <a onclick="changeHref();"><img src="~/UserFiles/magnifier.png" id="SearchBar_Magnifier" class="navbar-search-magnifier"/></a>
         @Html.Partial("_LoginPartial")
     </div>
 </div>
