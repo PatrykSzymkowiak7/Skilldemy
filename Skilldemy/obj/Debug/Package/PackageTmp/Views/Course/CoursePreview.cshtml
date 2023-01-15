@@ -1,0 +1,57 @@
+﻿@model Skilldemy.Models.CoursePreviewViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
+}
+@{
+    var previewVideo = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
+    var messySectionsList = Model.Videos.Where(m => m.IsPreviewVideo != true);
+    var sortedSectionList = messySectionsList.OrderBy(m => m.UploadedDate);
+
+}
+
+<div class="main-course-wrapper">
+    <h2>@Model.Course.Title</h2>
+    <h3></h3>
+    <h4>@Model.Course.Description</h4>
+    <h3></h3>
+
+
+    @foreach (var fetchedSection in sortedSectionList)
+    {
+        <div class="@fetchedSection.Id main-course-section-title" onclick="switchVisible(@fetchedSection.Id);" resourceUrl='@Url.Action("ShowVideo", "Course", new { id = fetchedSection.Id })'>
+            <p style="font-family: palatino-semi-bold; ">@fetchedSection.SectionTitle</p> 
+        </div>
+        <div class="@fetchedSection.Id main-course-section-description">
+            <p style="font-family: palatino-semi-bold; ">@fetchedSection.SectionDescription</p>          
+        </div>
+    }
+    <h3></h3>
+    <div class="main-course-left">
+        <video controls oncontextmenu="return false;" controlsList="nodownload">
+            <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" />
+        </video>
+    </div>
+</div>
+<a href="@Url.Action("PreparePayment", "Payment", new { courseId = Model.Course.Id, courseName = Model.Course.Title, price = Model.Course.Price })">
+    <button class="btn btn-default">Zakup kurs</button>
+</a>
+
+@section Scripts
+{
+    <!--
+        <script type="text/javascript">
+            function switchVisible(id) {
+                var sub = document.getElementsByClassName(id + ' main-course-section-description');
+                Array.from(sub).forEach((x) => {
+                    x.className = id + " main-course-section-description.active";
+                })
+                var active = document.getElementsByClassName(id + ' main-course-section-description.active');
+                Array.from(active).forEach((x) => {
+                    x.className = (id + " main-course-section-description");
+                })
+            }
+        </script>
+    -->
+}
