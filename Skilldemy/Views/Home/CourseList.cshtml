@@ -61,7 +61,7 @@
     }
     <a href="@Url.Action("CoursePreview", "Course", new { id = course.Id })">
         <div class="course-box">
-            <div class="opinie">
+            <div class="course-baner">
                 <div class="course-card">
                     @{ var courseImage = images.FirstOrDefault(i => i.CourseId == course.Id);
                         if (courseImage != null)
@@ -89,13 +89,13 @@
                 <div class="course-info-2">
 
                     @{
-                        <div class="span-kurs">@course.Title</div>
+                        <div class="span-kurs"><h3>@course.Title</h3></div>
                         <div class="span-kurs">@course.Description</div>
-                        <div class="span-kurs">@course.Rating <img src="/UserFiles/star.png" class="course-img" /></div>
                         <div class="span-kurs">@course.Difficulty</div>
-                        <div class="span-kurs"><p></p>@categoryName</div>
-                        <div class="span-kurs">@course.Price zł</div>
-                        <div class="span-kurs">@course.OwnerUserName</div>
+                        <div class="span-kurs"><p></p><b>@categoryName</b></div>
+                        <div class="span-kurs">@course.Rating <img src="/UserFiles/star.png" class="course-img" /></div>
+                        <div class="span-kurs"><h2>@course.Price zł</h2></div>
+                        //<div class="span-kurs">@course.OwnerUserName</div>
                     }
 
                 </div>

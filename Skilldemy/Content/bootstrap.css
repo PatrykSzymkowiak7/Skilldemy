@@ -6030,14 +6030,14 @@ button.close {
 }
 
 .btn btn-default{
-  background-color: #e7e7e7;
+  background-color: #fa0202;
   color: black;
   border: none;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
 }
 .modal-body-picture{
   background-image: url(/UserFiles/tickpopup.png); 
