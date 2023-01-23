@@ -67,6 +67,17 @@
         </div>
     </div>
     <br />
+    <video controls oncontextmenu="return false;" controlsList="nodownload">
+        <source src='@Url.Action("ShowPreviewVideoEdit", "Course", new { id = Model.CourseId })' type="video/mp4" width="150px" height="150px" />
+    </video>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PaidVideoFile, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PaidVideoFile, new { type = "file" })
+            @Html.ValidationMessageFor(m => m.PaidVideoFile)
+        </div>
+    </div>
+    <br />
     @Html.HiddenFor(m => m.CourseId)
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

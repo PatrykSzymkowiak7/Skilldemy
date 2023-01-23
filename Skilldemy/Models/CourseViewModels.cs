@@ -41,6 +41,10 @@ namespace Skilldemy.Models
         [Display(Name = "Wideo prezentujące kurs")]
         public HttpPostedFileBase PreviewVideoFile { get; set; }
 
+        [Required]
+        [Display(Name = "Wideo Płatne")]
+        public HttpPostedFileBase PaidVideoVile { get; set; }
+
         [CategoryDDLValidation]
         [Display(Name = "Kategoria")]
         public int CategoryId { get; set; }
@@ -90,11 +94,11 @@ namespace Skilldemy.Models
 
         public int CourseId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Tytuł")]
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - opis")]
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
@@ -116,6 +120,9 @@ namespace Skilldemy.Models
 
         [Display(Name = "Wideo prezentujące kurs")]
         public HttpPostedFileBase PreviewVideoFile { get; set; }
+
+        [Display(Name = "Wideo płatne")]
+        public HttpPostedFileBase PaidVideoFile { get; set; }
 
         [CategoryDDLValidation]
         [Display(Name = "Kategoria")]

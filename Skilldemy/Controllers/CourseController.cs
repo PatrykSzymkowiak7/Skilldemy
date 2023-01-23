@@ -98,13 +98,30 @@ namespace Skilldemy.Controllers
                 _context.Videos.Add(previewVideo);
             }
 
+            // Video serialization to DB
+            if (createCourseViewModel.PaidVideoVile != null)
+            {
+                Video paidVideo = new Video();
+
+                byte[] uploadedPaidVideo = new byte[createCourseViewModel.PaidVideoVile.InputStream.Length];
+                createCourseViewModel.PaidVideoVile.InputStream.Read(uploadedPaidVideo, 0, uploadedPaidVideo.Length);
+
+                paidVideo.VideoFile = uploadedPaidVideo;
+                paidVideo.IsPreviewVideo = false;
+                paidVideo.OwnerId = course.OwnerId;
+                paidVideo.CourseId = course.Id;
+                paidVideo.IsPaidVideo = true;
+
+                _context.Videos.Add(paidVideo);
+            }
+
             SectionViewModel sectionViewModel = new SectionViewModel();
             sectionViewModel.CourseId = course.Id;
 
             _context.Courses.Add(course);
             _context.SaveChanges();
 
-            return View("ManageSections", sectionViewModel);
+            return RedirectToAction("MyCourses");
         }
 
         public ActionResult ShowImage(int id)
@@ -281,6 +298,9 @@ namespace Skilldemy.Controllers
             Video video = new Video();
             video = _context.Videos.FirstOrDefault(v => v.CourseId == id && v.IsPreviewVideo == true);
 
+            Video paidVideo = new Video();
+            paidVideo = _context.Videos.FirstOrDefault(v => v.CourseId == id && v.IsPaidVideo == true);
+
             course = _context.Courses.FirstOrDefault(c => c.Id == id);
 
             editCourseViewModel.CourseId = id.Value;
@@ -291,6 +311,7 @@ namespace Skilldemy.Controllers
             editCourseViewModel.Title = course.Title;
             editCourseViewModel.PreviewVideoFile = new HttpPostedFileBaseHelper(video.VideoFile, "Preview video" + course.Id);
             editCourseViewModel.ImageFile = new HttpPostedFileBaseHelper(image.ImageFile, "Preview image" + course.Id);
+            editCourseViewModel.PaidVideoFile = new HttpPostedFileBaseHelper(paidVideo.VideoFile, "Paid video" + course.Id);
 
             return View("EditCourse", editCourseViewModel);
         }
@@ -340,6 +361,18 @@ namespace Skilldemy.Controllers
                 previewVideo.VideoFile = uploadedVideo;
             }
 
+            // Video serialization to DB
+            if (editCourseViewModel.PaidVideoFile != null)
+            {
+                Video paidVideo = new Video();
+                paidVideo = _context.Videos.FirstOrDefault(v => v.CourseId == course.Id && v.IsPaidVideo == true);
+
+                byte[] uploadedPaidVideo = new byte[editCourseViewModel.PaidVideoFile.InputStream.Length];
+                editCourseViewModel.PaidVideoFile.InputStream.Read(uploadedPaidVideo, 0, uploadedPaidVideo.Length);
+
+                paidVideo.VideoFile = uploadedPaidVideo;
+            }
+
             _context.SaveChanges();
             return RedirectToAction("MyCourses");
         }
@@ -371,6 +404,26 @@ namespace Skilldemy.Controllers
             // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
             var task = Task.Delay(1000).ContinueWith(t => Console.WriteLine(DateTime.Now));
             var video = _context.Videos.FirstOrDefault(i => i.CourseId == id && i.IsPreviewVideo == true);
+            task.Wait();
+
+            if (video != null)
+            {
+                if (video.VideoFile != null)
+                {
+                    return File(video.VideoFile, "video/mp4");
+                }
+            }
+
+            return null;
+        }
+
+        public ActionResult ShowPaidVideoEdit(int id)
+        {
+            // Need to delay getting videos from the database because it throws
+            // "The underlying provider failed on Open" if it happens too fast
+            // Another fix could be MultipleActiveResultSets=True in connection string but it is not supported 
+            var task = Task.Delay(1000).ContinueWith(t => Console.WriteLine(DateTime.Now));
+            var video = _context.Videos.FirstOrDefault(i => i.CourseId == id && i.IsPaidVideo == true);
             task.Wait();
 
             if (video != null)

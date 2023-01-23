@@ -670,3 +670,4 @@ C:\Users\Admin\Documents\Patrykmistrz\Skilldemy\Skilldemy\obj\Debug\Skilldemy.cs
 C:\Users\Admin\Documents\Patrykmistrz\Skilldemy\Skilldemy\obj\Debug\Skilldemy.csproj.CopyComplete
 C:\Users\Admin\Documents\Patrykmistrz\Skilldemy\Skilldemy\obj\Debug\Skilldemy.dll
 C:\Users\Admin\Documents\Patrykmistrz\Skilldemy\Skilldemy\obj\Debug\Skilldemy.pdb
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.PaidVideoFlag.resources

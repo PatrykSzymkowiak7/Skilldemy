@@ -7,6 +7,7 @@
 .body-content {
     padding-left: 0px;
     padding-right: 0px;
+    padding-bottom: 200px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -412,6 +413,8 @@ footer {
     font-family: Verdana;
     padding-top: 20px;
     color: #b1b1b1;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer-container {

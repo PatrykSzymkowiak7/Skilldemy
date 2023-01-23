@@ -4,7 +4,7 @@
     ViewBag.Title = "Utwórz kurs";
 }
 
-<h2>@ViewBag.Title</h2> 
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("CreateCourse", "Course", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
 {
@@ -60,6 +60,13 @@
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.PreviewVideoFile, new { type = "file" })
             @Html.ValidationMessageFor(m => m.PreviewVideoFile)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PaidVideoVile, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PaidVideoVile, new { type = "file" })
+            @Html.ValidationMessageFor(m => m.PaidVideoVile)
         </div>
     </div>
     <br />

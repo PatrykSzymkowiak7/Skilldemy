@@ -27,5 +27,7 @@ namespace Skilldemy.Models
         public DateTime UploadedDate { get; set; }
 
         public bool IsPreviewVideo { get; set; }
+
+        public bool IsPaidVideo { get; set; }
     }
 }
