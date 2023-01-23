@@ -42,18 +42,18 @@ namespace Skilldemy.Models
 
     public class ForgotViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Email")]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Nazwa uzytkownika")]
         [Display(Name = "Nazwa użytkownika")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - hasło")]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
@@ -64,7 +64,7 @@ namespace Skilldemy.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Email")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -80,39 +80,39 @@ namespace Skilldemy.Models
         [Compare("Password", ErrorMessage = "Podane hasła różnią się")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Nazwa użytkownika")]
         [Index(IsUnique = true)]
         [Display(Name = "Nazwa użytkownika")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Numer konta bankowego")]
         [Display(Name = "Numer konta bankowego")]
         public string BankAccountNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Ulica")]
         [Display(Name = "Ulica")]
         public string Street { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Numer domu")]
         [Display(Name = "Numer domu")]
         public string HouseNumber { get; set; }
 
         [Display(Name = "Numer mieszkania")]
         public string FlatNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Kod pocztowy")]
         [DataType(DataType.PostalCode)]
         [Display(Name = "Kod pocztowy")]
         public string PostalCode { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Miejscowość")]
         [Display(Name = "Miejscowość")]
         public string Town { get; set; }
     }
 
     public class ResetPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Email")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -120,11 +120,11 @@ namespace Skilldemy.Models
         [Required]
         [StringLength(100, ErrorMessage = "{0} musi mieć przynajmniej {2} znaków", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "Podane hasła różnią się")]
         public string ConfirmPassword { get; set; }
 
@@ -133,7 +133,7 @@ namespace Skilldemy.Models
 
     public class ForgotPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Email")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

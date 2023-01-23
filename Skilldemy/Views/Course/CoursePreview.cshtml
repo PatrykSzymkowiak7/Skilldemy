@@ -13,7 +13,7 @@
     <h2>@Model.Course.Title</h2>
     <h4>@Model.Course.Description</h4>
     <div class="main-course-left">
-        <video controls oncontextmenu="return false;" controlsList="nodownload">
+        <video style="height: 700px; width: 1000px; border:10px solid;" controls oncontextmenu="return false;" controlsList="nodownload">
             <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" />
         </video>
     </div>
