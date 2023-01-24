@@ -69,7 +69,7 @@ namespace Skilldemy.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Hasło")]
         [StringLength(100, ErrorMessage = "{0} musi mieć przynajmniej {2} znaków", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]

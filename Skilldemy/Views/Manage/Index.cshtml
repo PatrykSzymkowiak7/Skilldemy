@@ -4,7 +4,7 @@
     ViewBag.Title = "Manage";
 }
 
-<h2>Zarządzaj kontem</h2>
+<h2>Witaj!</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -42,64 +42,200 @@
         </dd>
 
         @*<dt>Konta zewnętrzne:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Zarządzaj kontami zewnętrznymi", "ManageLogins") ]
-        </dd>*@
+            <dd>
+                @Model.Logins.Count [
+                @Html.ActionLink("Zarządzaj kontami zewnętrznymi", "ManageLogins") ]
+            </dd>*@
         @*
-        Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
 
-         See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-            for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+             See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
 
-         Uncomment the following block after you have set up two-factor authentication
+             Uncomment the following block after you have set up two-factor authentication
         *@
         @*
-        <dt>Phone Number:</dt>
-        <dd>
-            @(Model.PhoneNumber ?? "None")
-            @if (Model.PhoneNumber != null)
+            <dt>Phone Number:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "None")
+                @if (Model.PhoneNumber != null)
+                {
+                    <br />
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    }
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                }
+            </dd>
+        *@
+        @*<dt>Two-Factor Authentication:</dt>
+            <dd>
+                <p>
+                    There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                    for details on setting up this ASP.NET application to support two-factor authentication.
+                </p>*@
+        @*@if (Model.TwoFactor)
             {
-                <br />
-                <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    <text>Enabled
+                    <input type="submit" value="Disable" class="btn btn-link" />
+                    </text>
                 }
             }
             else
             {
-                <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-            }
-        </dd>
-        *@
-        @*<dt>Two-Factor Authentication:</dt>
-        <dd>
-            <p>
-                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication.
-            </p>*@
-        @*@if (Model.TwoFactor)
-        {
-            using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <text>Enabled
-                <input type="submit" value="Disable" class="btn btn-link" />
-                </text>
-            }
-        }
-        else
-        {
-            using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <text>Disabled
-                <input type="submit" value="Enable" class="btn btn-link" />
-                </text>
-            }
-        }*@
+                using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <text>Disabled
+                    <input type="submit" value="Enable" class="btn btn-link" />
+                    </text>
+                }
+            }*@
         </dd>
     </dl>
+
+    <div class="container my-5 z-depth-1">
+        <!--Section: Content-->
+        <section class="dark-grey-text">
+
+            <div class="row pr-lg-5">
+                <div class="col-md-7 mb-4">
+                    <div class="view" style="max-width: 100%; flex-basis: 40%;">
+                        <img src="https://mdbootstrap.com/img/illustrations/graphics(4).png" class="img-fluid" alt="smaple image" style="height: 500px; max-width: 100%; position: relative; flex-basis: 40%">
+                    </div>
+
+                </div>
+                <div class="col-md-5 d-flex align-items-center" style="position:relative; padding-top:140px; text-align:center;">
+                    <div>
+
+                        <h3 class="font-weight-bold mb-4">Utwórz kurs</h3>
+
+                        <p>
+                            Stwórz swój własny kurs online! Skorzystaj z intuicyjnego narzędzia do tworzenia kursów które pozwala w łatwy i szybki sposób na stworzenie nowego kursu od podstaw. Wymagane jest jedynie przygotowanie własnych materiałów
+                            wideo - filmu demo i filmu widocznego po zakupie kursu, jak i miniaturki która zaprezentuje twoją pracę!
+                        </p>
+
+                        <a href="@Url.Action("CreateCourse", "Course")">
+                            <button class="btn btn-success">Utwórz nowy kurs</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Content-->
+    </div>
+
+    <div class="container my-5 py-5 z-depth-1">
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0" style="position:relative; padding-top:190px; text-align:center;">
+
+                    <h3 class="font-weight-bold">Przeglądaj swoje kursy</h3>
+
+                    <p class="text-muted">
+                        Przejdź do listy kursów które stworzyłeś, aby zarządzać ich widocznością na głównej liście kursów, usunąć je na stałe z naszej bazy danych lub edytować ich zawartość zmieniając miniaturkę, tytuł, materiał wideo i nie tylko!
+                    </p>
+                    <a href="@Url.Action("MyCourses", "Course")">
+                        <button class="btn btn-success">Przeglądaj moje kursy</button>
+                    </a>
+
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <!--Image-->
+                    <div class="view overlay z-depth-1-half">
+                        <img src="/UserFiles/change_data.png" class="img-fluid" alt="smaple image" style="height: 500px; max-width: 100%; position: relative; flex-basis: 40%">
+                    </div>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!--Section: Content-->
+    </div>
+
+    <div class="container my-5 z-depth-1">
+        <!--Section: Content-->
+        <section class="dark-grey-text">
+
+            <div class="row pr-lg-5">
+                <div class="col-md-7 mb-4">
+                    <div class="view" style="max-width: 100%; flex-basis: 40%;">
+                        <img src="https://mdbootstrap.com/img/illustrations/graphics(4).png" class="img-fluid" alt="smaple image" style="height: 500px; max-width: 100%; position: relative; flex-basis: 40%">
+                    </div>
+
+                </div>
+                <div class="col-md-5 d-flex align-items-center" style="position:relative; padding-top:70px; text-align:center;">
+                    <div>
+
+                        <h3 class="font-weight-bold mb-4">Utwórz kurs</h3>
+
+                        <p>
+                            Stwórz swój własny kurs online! Skorzystaj z intuicyjnego narzędzia do tworzenia kursów które pozwala w łatwy i szybki sposób na stworzenie nowego kursu od podstaw. Wymagane jest jedynie przygotowanie własnych materiałów
+                            wideo - filmu demo i filmu widocznego po zakupie kursu, jak i miniaturki która zaprezentuje twoją pracę!
+                        </p>
+
+                        <a href="@Url.Action("Utwórz kurs", "CreateCourse")">
+                            <button class="btn btn-success">Przeglądaj</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Content-->
+    </div>
+
+    <div class="container my-5 py-5 z-depth-1">
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                    <h3 class="font-weight-bold">Przeglądaj swoje kursy</h3>
+
+                    <p class="text-muted">
+                        Przejdź do listy kursów które stworzyłeś, aby zarządzać ich widocznością na głównej liście kursów, edytować ich zawartość lub usunąć je na stałe z naszej bazy danych!
+                    </p>
+                    <a href="@Url.Action("MyCourses", "Course")">
+                        <button class="btn btn-success">Utwórz nowy kurs</button>
+                    </a>
+
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <!--Image-->
+                    <div class="view overlay z-depth-1-half">
+                        <img src="/UserFiles/change_data.png" class="img-fluid" alt="smaple image" style="height: 500px; max-width: 100%; position: relative; flex-basis: 40%">
+                    </div>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!--Section: Content-->
+    </div>
 </div>

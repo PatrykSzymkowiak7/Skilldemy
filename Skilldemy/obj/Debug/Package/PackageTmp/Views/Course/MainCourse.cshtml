@@ -5,46 +5,29 @@
 }
 @{
     var previewVideo = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
-    var messySectionsList = Model.Videos.Where(m => m.IsPreviewVideo != true);
-    var sortedSectionList = messySectionsList.OrderBy(m => m.UploadedDate);
+    var paidVideo = Model.Videos.FirstOrDefault(m => m.IsPaidVideo == true);
 
 }
 
 <div class="main-course-wrapper">
     <h2>@Model.Course.Title</h2>
-    <h3></h3>
+    <br />
     <h4>@Model.Course.Description</h4>
-    <h3></h3>
     <br />
     <div class="main-course-left">
-        @if (Model.VideoToShow == 0)
+        @if (paidVideo == null)
         {
-            <video controls oncontextmenu="return false;" controlsList="nodownload">
-                <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" style="width:300px;height:300px" id="mainVideo" />
+            <video controls oncontextmenu="return false;" controlsList="nodownload" style="width:100%; height:auto;">
+                <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" id="mainVideo" />
             </video>
         }
         else
         {
             <video controls oncontextmenu="return false;" controlsList="nodownload">
-                <source src='@Url.Action("ShowVideo", "Course", new { id = Model.VideoToShow })' type="video/mp4" style="width:300px;height:300px" id="mainVideo" />
+                <source src='@Url.Action("ShowVideo", "Course", new { id = paidVideo.Id })' type="video/mp4" id="mainVideo" />
             </video>
         }
     </div>
-    <div class="main-course-right">
-        @foreach (var fetchedSection in sortedSectionList)
-        {
-        <p style="font-family: palatino-semi-bold; ">
-            <a href="@Url.Action("ShowSectionVideo", "Course", new { id = Model.Course.Id, videoId = fetchedSection.Id })">
-                <div class="@fetchedSection.Id main-course-section-title">
-                    @fetchedSection.SectionTitle
-                </div>
-            </a>
-        </p>
-            <div class="@fetchedSection.Id main-course-section-description">
-                <p style="font-family: palatino-semi-bold; ">@fetchedSection.SectionDescription</p>
-            </div>
-            }
-</div>
 </div>
 <br />
 <br />
