@@ -4,7 +4,34 @@
     Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
 }
 
-<h1> Płatność zakończona pomyślnie! na twój adres mailowy @Model.EmailAddress została przesłana wiadomość z linkiem dostępowym!</h1>
+<div class="container my-5 z-depth-1">
+    <!--Section: Content-->
+    <section class="dark-grey-text">
+
+        <div class="row pr-lg-5">
+            <div class="col-md-5 d-flex align-items-center" style="position:relative; padding-top:70px; padding-bottom:70px; text-align:center;">
+                <div>
+                    <img src="/UserFiles/success_clipart.png" class="img-fluid" alt="smaple image" style="height: 150px; max-width: 100%;">
+                    <br />
+                    <h3 class="font-weight-bold mb-4">Płatność zakończona sukcesem!</h3>
+
+                    <p>
+                        Na twój adres mailowy <b>@Model.EmailAddress</b> została przesłana wiadomość z linkiem dostępowym uprawniającym Cię do trzykrotnego wejścia w kurs!
+                    </p>
+                    <br />
+                    <a href="@Url.Action("CourseList", "Home")">
+                        <button class="btn btn-success">Wróć na listę kursów</button>
+                    </a>
+                    <br />
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--Section: Content-->
+</div>
+
+<h1> </h1>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
