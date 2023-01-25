@@ -80,6 +80,7 @@ namespace Skilldemy.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    returnUrl = "/Manage";
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
