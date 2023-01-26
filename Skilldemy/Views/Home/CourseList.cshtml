@@ -20,16 +20,16 @@
         }
     }
 }
-<div class="searchBar-course">
-    Sortuj po:
+<div class="searchBar-course" style="margin-bottom:20px;margin-left:20px;">
+    <b>Sortuj po:</b>
     <a href="@Url.Action("SortCourses", "Home", new { sortBy = "Popularity" })">
-        <button class="course-button">Popularne</button>
+        <button class="course-button" style="width:100px;margin-right:5px;">Popularne</button>
     </a>
     <a href="@Url.Action("SortCourses", "Home", new { sortBy = "Newest" })">
-        <button class="course-button">Nowe</button>
+        <button class="course-button" style="width: 100px; margin-right:5px;">Nowe</button>
     </a>
     <a href="@Url.Action("CourseList", "Home")">
-        <button class="course-button">Domyślnie</button>
+        <button class="course-button" style="width: 100px; margin-right:5px;">Domyślnie</button>
     </a>
 </div>
 @foreach (var course in courses)

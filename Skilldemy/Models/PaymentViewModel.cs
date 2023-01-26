@@ -32,15 +32,15 @@ namespace Skilldemy.Models
         // Customer concatenated name
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Imię")]
         [Display(Name = "Imię")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Nazwisko")]
         [Display(Name = "Nazwisko")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Adres email")]
         [Display(Name = "Adres email")]
         public string EmailAddress { get; set; }
     }

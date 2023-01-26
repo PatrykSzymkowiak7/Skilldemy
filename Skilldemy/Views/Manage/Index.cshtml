@@ -21,13 +21,13 @@
 
                         <h3 class="font-weight-bold mb-4">Utwórz kurs</h3>
 
-                        <p>
+                        <p class="text-muted" style="font-size:17px;">
                             Stwórz swój własny kurs online! Skorzystaj z intuicyjnego narzędzia do tworzenia kursów które pozwala w łatwy i szybki sposób na stworzenie nowego kursu od podstaw. Wymagane jest jedynie przygotowanie własnych materiałów
                             wideo - filmu demo i filmu widocznego po zakupie kursu, jak i miniaturki która zaprezentuje twoją pracę!
-                        </p>
+                        <p/>
 
                         <a href="@Url.Action("CreateCourse", "Course")">
-                            <button class="btn btn-success">Utwórz nowy kurs</button>
+                            <button class="btn btn-success">Utwórz nowy</button>
                         </a>
 
                     </div>
@@ -46,15 +46,15 @@
             <div class="row">
 
                 <!--Grid column-->
-                <div class="col-md-6 mb-4 mb-md-0" style="position:relative; padding-top:190px; text-align:center;">
+                <div class="col-md-6 mb-4 mb-md-0" style="position:relative; padding-top:170px; text-align:center;">
 
                     <h3 class="font-weight-bold">Przeglądaj swoje kursy</h3>
 
-                    <p class="text-muted">
-                        Przejdź do listy kursów które stworzyłeś, aby zarządzać ich widocznością na głównej liście kursów, usunąć je na stałe z naszej bazy danych lub edytować ich zawartość zmieniając miniaturkę, tytuł, materiał wideo i nie tylko!
+                    <p class="text-muted" style="font-size:17px;">
+                        Przejdź do listy kursów które stworzyłeś, aby zarządzać ich widocznością na głównej liście kursów, usunąć je na stałe z naszej bazy danych lub edytować ich zawartość zmieniając miniaturkę, tytuł, materiał<br /> wideo i nie tylko!
                     </p>
                     <a href="@Url.Action("MyCourses", "Course")">
-                        <button class="btn btn-success">Przeglądaj moje kursy</button>
+                        <button class="btn btn-success">Przeglądaj kursy</button>
                     </a>
 
                 </div>
@@ -84,20 +84,20 @@
                     </div>
 
                 </div>
-                <div class="col-md-5 d-flex align-items-center" style="position:relative; padding-top:150px; text-align:center;">
+                <div class="col-md-5 d-flex align-items-center" style="position:relative; padding-top:120px; text-align:center;">
                     <div>
 
                         <h3 class="font-weight-bold mb-4">Zmień moje dane</h3>
 
-                        <p>
+                        <p class="text-muted" style="font-size:17px;">
                             Zarządzaj swoim kontem edytując dane wprowadzone podczas rejestracji, takie jak - adres email i dane adresowe, lub zmień swoje aktualnie używane hasło na jakieś mocniejsze!
                         </p>
 
                         <a href="@Url.Action("EditAccount", "Manage")">
-                            <button class="btn btn-success">Zmień moje dane</button>
+                            <button class="btn btn-success">Zmień dane</button>
                         </a>                       
                         <a href="@Url.Action("ChangePassword", "Manage")">
-                            <button class="btn btn-success">Zmień moje hasło</button>
+                            <button class="btn btn-success">Zmień hasło</button>
                         </a>
 
                     </div>
