@@ -199,7 +199,7 @@
     display: flex;
     float: left;
     flex-direction: column;
-    background-color: #bbbbbb;
+    background-color: #0c0c0c;
     justify-content: center;
     padding-left: 150px;
 }
@@ -218,7 +218,7 @@
 */
 
 .container-contact {
-    background-color: #bbbbbb;
+    background-color: #0c0c0c;
     display: flex;
     flex-direction: column;
     float: left;
@@ -322,8 +322,8 @@
 */
 
 .loc-map {
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     -webkit-box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
     box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
