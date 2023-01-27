@@ -179,7 +179,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 500px;
+    height: 320px;
 }
 
 .container-body-top {
@@ -195,11 +195,11 @@
 
 .container-map {
     height: 100%;
-    width: 60%;
+    width: 55%;
     display: flex;
     float: left;
     flex-direction: column;
-    background-color: #0c0c0c;
+    background-color: #bbbbbb;
     justify-content: center;
     padding-left: 150px;
 }
@@ -218,14 +218,15 @@
 */
 
 .container-contact {
-    background-color: #0c0c0c;
+    background-color: #bbbbbb;
     display: flex;
     flex-direction: column;
     float: left;
     height: 100%;
-    width: 40%;
+    width: 45%;
     text-align: center;
     padding-top: 100px;
+    padding-right: 150px;
     font-family: Verdana;
 }
 
@@ -335,7 +336,7 @@
 /*slider*/
 
 .slider-container {
-    background-color: #c31a1a;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
