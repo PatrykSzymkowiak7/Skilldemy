@@ -335,9 +335,18 @@
     <Compile Include="Migrations\202301231712291_PaidVideoFlag.designer.cs">
       <DependentUpon>202301231712291_PaidVideoFlag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301311653491_CourseRatingModel.cs" />
+    <Compile Include="Migrations\202301311653491_CourseRatingModel.designer.cs">
+      <DependentUpon>202301311653491_CourseRatingModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301311707211_RatingCount.cs" />
+    <Compile Include="Migrations\202301311707211_RatingCount.designer.cs">
+      <DependentUpon>202301311707211_RatingCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CourseEntry.cs" />
+    <Compile Include="Models\CourseRating.cs" />
     <Compile Include="Models\UUIDConnection.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
@@ -505,6 +514,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301231712291_PaidVideoFlag.resx">
       <DependentUpon>202301231712291_PaidVideoFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301311653491_CourseRatingModel.resx">
+      <DependentUpon>202301311653491_CourseRatingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301311707211_RatingCount.resx">
+      <DependentUpon>202301311707211_RatingCount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

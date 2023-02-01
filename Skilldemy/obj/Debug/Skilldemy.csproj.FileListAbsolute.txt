@@ -672,3 +672,5 @@ C:\Users\Admin\Documents\Patrykmistrz\Skilldemy\Skilldemy\obj\Debug\Skilldemy.dl
 C:\Users\Admin\Documents\Patrykmistrz\Skilldemy\Skilldemy\obj\Debug\Skilldemy.pdb
 C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.PaidVideoFlag.resources
 C:\Users\Szymon Łuczak\Documents\GitHub\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.PaidVideoFlag.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.CourseRatingModel.resources
+C:\Skilldemy nightly\Skilldemy\Skilldemy\obj\Debug\Skilldemy.Migrations.RatingCount.resources

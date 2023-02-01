@@ -12,11 +12,11 @@ namespace Skilldemy.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Tytuł")]
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Opis")]
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
@@ -45,5 +45,7 @@ namespace Skilldemy.Models
         public int CategoryId { get; set; }
 
         public bool IsVisible { get; set; }
+
+        public int RatingCount { get; set; }
     }
 }

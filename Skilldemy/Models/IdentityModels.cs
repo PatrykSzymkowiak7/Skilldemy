@@ -46,6 +46,8 @@ namespace Skilldemy.Models
 
         public DbSet<CourseEntry> CourseEntries { get; set; }
 
+        public DbSet<CourseRating> CourseRatings { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

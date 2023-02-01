@@ -86,6 +86,9 @@ namespace Skilldemy.Models
         public Course Course;
         public List<Video> Videos;
         public int VideoToShow;
+        public int CourseEntries;
+        public int Score;
+        public string currentUuid;
     }
 
     public class EditCourseViewModel

@@ -55,16 +55,17 @@ namespace Skilldemy.Controllers
             course.Title = createCourseViewModel.Title;
             course.Description = createCourseViewModel.Description;
             course.CategoryId = createCourseViewModel.CategoryId;
-            var highestIdCourse = _context.Courses.OrderByDescending(c => c.Id).FirstOrDefault();
+            course.Rating = 0;
+            course.RatingCount = 0;
 
-            if (highestIdCourse == null)
-            {
-                course.Id = 1;
-            }
-            else
-            {
-                course.Id = highestIdCourse.Id + 1;
-            }
+            // Hack to fetch id
+            _context.Courses.Add(course);
+            _context.SaveChanges();
+            var savedCourse = _context.Courses.FirstOrDefault(c => c.Title == course.Title 
+                && c.Description == course.Description 
+                && c.Price == course.Price 
+                && c.OwnerUserName == course.OwnerUserName);
+            course = savedCourse;
 
             // Image serialization to DB
             if (createCourseViewModel.ImageFile != null)
@@ -118,7 +119,6 @@ namespace Skilldemy.Controllers
             SectionViewModel sectionViewModel = new SectionViewModel();
             sectionViewModel.CourseId = course.Id;
 
-            _context.Courses.Add(course);
             _context.SaveChanges();
 
             return RedirectToAction("MyCourses");
@@ -450,8 +450,10 @@ namespace Skilldemy.Controllers
 
             UUIDConnection uuidConnection = _context.UUIDConnections.FirstOrDefault(u => u.UUID == uuid);
             List<CourseEntry> entriesSoFar = _context.CourseEntries.Where(e => e.UUID == uuid).ToList<CourseEntry>();
+            int entriesCount = entriesSoFar.Count();
 
-            if(entriesSoFar.Count < 3 || uuid == "f77fb9bf-8fdd-45bd-b67c-6d87bc09f992")
+            // https://localhost:44317/course/ShowBoughtCourse/20?uuid=f0c3ea12-6433-4b96-ab99-ac5f4d091738
+            if (entriesCount < 3 || uuid == "f0c3ea12-6433-4b96-ab99-ac5f4d091738")
             {
                 CourseEntry courseEntry = new CourseEntry
                 {
@@ -463,9 +465,17 @@ namespace Skilldemy.Controllers
                 CourseBoughtViewModel courseBoughtViewModel = new CourseBoughtViewModel();
                 Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
                 List<Video> videos = (_context.Videos.Where(v => v.CourseId == id)).ToList();
+                CourseRating courseRating = _context.CourseRatings.FirstOrDefault(c => c.UUID == uuid);
 
                 courseBoughtViewModel.Course = course;
                 courseBoughtViewModel.Videos = videos;
+                courseBoughtViewModel.currentUuid = uuid;
+                courseBoughtViewModel.CourseEntries = 3 - entriesCount;
+
+                if (courseRating != null)
+                    courseBoughtViewModel.Score = courseRating.Score;
+                else
+                    courseBoughtViewModel.Score = 0;
 
                 _context.CourseEntries.Add(courseEntry);
                 _context.SaveChanges();
@@ -487,6 +497,52 @@ namespace Skilldemy.Controllers
             courseBoughtViewModel.Course = course;
             courseBoughtViewModel.Videos = videos;
             courseBoughtViewModel.VideoToShow = videoId;
+
+            return View("MainCourse", courseBoughtViewModel);
+        }
+
+        public ActionResult ReviewCourse(int id, int score, string uuid, int courseEntries)
+        {
+            CourseBoughtViewModel courseBoughtViewModel = new CourseBoughtViewModel();
+            Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            List<Video> videos = (_context.Videos.Where(v => v.CourseId == id)).ToList();
+            CourseRating foundCourseRating = _context.CourseRatings.FirstOrDefault(c => c.UUID == uuid);
+
+            if(foundCourseRating == null)
+            {
+                CourseRating courseRating = new CourseRating();
+                courseRating.CourseId = id;
+                courseRating.Score = score;
+                courseRating.UUID = uuid;
+                _context.CourseRatings.Add(courseRating);
+                course.RatingCount += course.RatingCount;
+                courseBoughtViewModel.Score = courseRating.Score;
+            }
+            else
+            {
+                foundCourseRating.CourseId = id;
+                foundCourseRating.Score = score;
+                foundCourseRating.UUID = uuid;
+                courseBoughtViewModel.Score = foundCourseRating.Score;
+            }
+
+            courseBoughtViewModel.Course = course;
+            courseBoughtViewModel.Videos = videos;
+            courseBoughtViewModel.currentUuid = uuid;
+            courseBoughtViewModel.CourseEntries = courseEntries;
+
+            _context.SaveChanges();
+
+            List<CourseRating> courseRatings = _context.CourseRatings.Where(c => c.CourseId == id).ToList();
+            double courseRatingSum = 0;
+            foreach (var cR in courseRatings)
+            {
+                courseRatingSum += cR.Score;
+            }
+            if(courseRatingSum != 0 && course.RatingCount != 0)
+                course.Rating = courseRatingSum / course.RatingCount;
+
+            _context.SaveChanges();
 
             return View("MainCourse", courseBoughtViewModel);
         }
