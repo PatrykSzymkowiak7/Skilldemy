@@ -5,14 +5,16 @@
     ViewBag.Title = "Log in";
 }
 <br />
-<h2>Zaloguj się</h2>
+<div class="upperLogin">
+    <img src="~/UserFiles/logoSK/logo_transparent.png" class="upperLoginImg" />
+</div>
 <div class="row">
     <div class="col-md-8">
-        <section id="loginForm" style="margin-bottom:170px;margin-top:20px;">
+        <section id="loginForm" class="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <hr />
+
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
@@ -38,16 +40,16 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Zaloguj się" class="course-button"/>&nbsp&nbsp
+                        <input type="submit" value="Zaloguj się" class="course-button" />&nbsp&nbsp
                     </div>
                 </div>
-                /* 
+                /*
                 Enable this once you have account confirmation enabled for password reset functionality
                 <p>
                     @Html.ActionLink("Forgot your password?", "ForgotPassword")
                 </p>
                 */
-             }
+            }
         </section>
     </div>
 </div>
