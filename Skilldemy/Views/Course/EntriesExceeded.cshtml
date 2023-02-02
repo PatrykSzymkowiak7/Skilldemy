@@ -2,7 +2,14 @@
     Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
 }
 
-<h1>Przekroczono limit wejść! Aby uzyskać dostęp należy ponownie zakupić kurs.</h1>
+<div class="main-course-wrapper">
+    <div class="alert alert-danger" role="alert" style="text-align: center; width: 1000px; padding-top:30px; padding-bottom:30px; margin-right: auto; margin-top:150px; margin-bottom:200px;">
+        <h2><strong>Przekroczono limit wejść!</strong></h2><br /><h3>Aby móc korzystać z treści należy wykupić ponowny dostęp do kursu.</h3>
+        <a href="@Url.Action("CourseList", "Home")">
+            <button class="btn btn-warning" style="font-size:22px; margin-top:50px;">Wróć na listę kursów</button>
+        </a>
+    </div>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
