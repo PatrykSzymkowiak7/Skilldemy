@@ -13,11 +13,82 @@
     <div class="navbar">
         @Html.Partial("_NavBar")
     </div>
-    <div class="container-top">
-    </div>
-    <div class="container body-content">
+
+    <div class="container-body-content">
         @RenderBody()
     </div>
+    <div class="container-top">
+    </div>
+    <div class="photo-body">
+        <div class="photo-body-container">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="/UserFiles/photos/book.png">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Systematyczność</h2>
+                        <p>
+                            Korzystaj z przypomnienia w swoim telefonie, zaplanuj wcześniej cykliczne okno  czasu, które poświęcisz na naukę. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="/UserFiles/photos/book1.png">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Koncentracja</h2>
+                        <p>
+                            Wybierz spokojne miejsce do nauki. Środowisko w którym się uczysz nie powinno Cie rozpraszać.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="/UserFiles/photos/book2.png">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Inżynieria</h2>
+                        <p>
+                           Pomagamy zdobywać praktyczną wiedzę, która przybliży Cię do celu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="/UserFiles/photos/book3.png">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Logika</h2>
+                        <p>
+                           Nasze kursy są utworzone w taki sposób, aby z łatwością były przyswajalne przez naszych klientów.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="/UserFiles/photos/book4.png">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Lingwistyka</h2>
+                        <p>
+                            Działamy ściśle z tytułowanymi expertami w dziedzinie języków.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-body-top">
         <div class="inf-kaf1">
             <div class="opinie">
@@ -148,8 +219,8 @@
                     <div class="review-content">
                         <h3 class="customer-name">Ania Kowal</h3>
                         <p class="customer-review-text">
-                            Polecam! Świetnie przygotowane kursy. Za niewielkie pieniądze zdobywam wiedzę, która pozwala mi więcej zarabiać, lepiej pracować. Treści kursów są bardzo merytoryczne i wartościowe, do tego niska cena i dostęp z każdego miejsca na ziemi. :)                       
-                         </p>
+                            Polecam! Świetnie przygotowane kursy. Za niewielkie pieniądze zdobywam wiedzę, która pozwala mi więcej zarabiać, lepiej pracować. Treści kursów są bardzo merytoryczne i wartościowe, do tego niska cena i dostęp z każdego miejsca na ziemi. :)
+                        </p>
                     </div>
                 </div>
             </div>
@@ -161,7 +232,7 @@
                     <div class="review-content">
                         <h3 class="customer-name">Ewa Lisek</h3>
                         <p class="customer-review-text">
-                            Kursy bardzo dobrze tłumaczą zagadnienia, co pozwala z dużą łatwością przyswoić nową wiedzę. Jestem bardzo zadowolona, skorzystam jeszcze nie raz. Dziękuję i gorąco polecam.               
+                            Kursy bardzo dobrze tłumaczą zagadnienia, co pozwala z dużą łatwością przyswoić nową wiedzę. Jestem bardzo zadowolona, skorzystam jeszcze nie raz. Dziękuję i gorąco polecam.
                         </p>
                     </div>
                 </div>
@@ -174,7 +245,7 @@
                     <div class="review-content">
                         <h3 class="customer-name">Andrzej Dmowski</h3>
                         <p class="customer-review-text">
-                            Jestem zachwycony tą platformą, taki ogrom wiedzy w jednym miejscu. Kursy bardzo dobrze przygotowane i w przestępnej cenie. Super!                        
+                            Jestem zachwycony tą platformą, taki ogrom wiedzy w jednym miejscu. Kursy bardzo dobrze przygotowane i w przestępnej cenie. Super!
                         </p>
                     </div>
                 </div>
@@ -188,7 +259,7 @@
                     <div class="review-content">
                         <h3 class="customer-name">Aneta Jańczyk</h3>
                         <p class="customer-review-text">
-                            Platforma daje możliwość zakupu bardzo satrannie przygotowanych kursów z różnych dziedzin, które pomagają nie tylko w rozwijaniu własnego hobby, jak programowanie, ale są również pomocne w zdobywaniu i doskonaleniu umiejętności w gotowaniu. Polecam!                            
+                            Platforma daje możliwość zakupu bardzo satrannie przygotowanych kursów z różnych dziedzin, które pomagają nie tylko w rozwijaniu własnego hobby, jak programowanie, ale są również pomocne w zdobywaniu i doskonaleniu umiejętności w gotowaniu. Polecam!
                         </p>
                     </div>
                 </div>
@@ -202,7 +273,7 @@
                     <div class="review-content">
                         <h3 class="customer-name">Dawid Szumalik</h3>
                         <p class="customer-review-text">
-                            Równowaga pomiędzy teorią a praktyką została osiągnięta. Konkretne zagadnienia zilustrowane przykładami, dzięki temu znacznie więcej zapadło w pamięci. Kurs bardzo ciekawie przeprowadzony. Świetna sprawa, polecam!                             
+                            Równowaga pomiędzy teorią a praktyką została osiągnięta. Konkretne zagadnienia zilustrowane przykładami, dzięki temu znacznie więcej zapadło w pamięci. Kurs bardzo ciekawie przeprowadzony. Świetna sprawa, polecam!
                         </p>
                     </div>
                 </div>
@@ -215,7 +286,7 @@
                     <div class="review-content">
                         <h3 class="customer-name">Piotr Nowak</h3>
                         <p class="customer-review-text">
-                            Szkolenie przedstawione w bardzo przyjemnej formie, przepełnione ciekawą i wysokiej jakości treścią. Na pewno będę tutaj wracać i korzystać z kolejnych kursów.                             
+                            Szkolenie przedstawione w bardzo przyjemnej formie, przepełnione ciekawą i wysokiej jakości treścią. Na pewno będę tutaj wracać i korzystać z kolejnych kursów.
                         </p>
                     </div>
                 </div>
