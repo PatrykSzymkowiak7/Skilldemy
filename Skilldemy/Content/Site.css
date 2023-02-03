@@ -198,20 +198,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 500px;
 }
  
 .control-label{
     display:none;
 }
 
- 
+.col-md-10{
+    width: 120%;
+    height:30px;
+}
+
 
 /*
     Registry
-*/
-
-
-    hidding ?
 */
 .container-body-content {
     display: none;

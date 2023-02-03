@@ -16,21 +16,21 @@
         <div class="form-group">
             @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder ="Imię" })
                 @Html.ValidationMessageFor(m => m.FirstName)
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Nazwisko" })
                 @Html.ValidationMessageFor(m => m.LastName)
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.EmailAddress, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", placeholder = "E-mail" })
                 @Html.ValidationMessageFor(m => m.EmailAddress)
             </div>
         </div>
@@ -38,7 +38,7 @@
         @Html.HiddenFor(m => m.Description)
         @Html.HiddenFor(m => m.Amount)
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" id="submitPayment" class="btn btn-success" value="Zapłać" style="width:150px;margin-left:50px;" />
+            <input type="submit" id="submitPayment" class="course-button" value="Zapłać" style="width:150px;margin-left:50px;" />
         </div>
     </div>
 }

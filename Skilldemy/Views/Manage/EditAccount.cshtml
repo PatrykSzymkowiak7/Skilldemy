@@ -9,11 +9,12 @@
 @using (Html.BeginForm("Save", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <hr />
+
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+          <h1 style="font-size:16px; font-family:Verdana;"> E-mail </h1>
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Email)
         </div>
@@ -21,6 +22,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.BankAccountNumber, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <h1 style="font-size:16px; font-family:Verdana;"> Numer konta bankowego </h1>
             @Html.TextBoxFor(m => m.BankAccountNumber, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.BankAccountNumber)
         </div>
@@ -28,6 +30,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <h1 style="font-size:16px; font-family:Verdana;"> Miasto </h1>
             @Html.TextBoxFor(m => m.Town, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Town)
         </div>
@@ -35,6 +38,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <h1 style="font-size:16px; font-family:Verdana;"> Kod Pocztowy </h1>
             @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.PostalCode)
         </div>
@@ -42,6 +46,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <h1 style="font-size:16px; font-family:Verdana;"> Ulica </h1>
             @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Street)
         </div>
@@ -49,6 +54,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.HouseNumber, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <h1 style="font-size:16px; font-family:Verdana;"> Numer ulicy </h1>
             @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.HouseNumber)
         </div>
@@ -56,6 +62,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.FlatNumber, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+             <h1 style="font-size:16px; font-family:Verdana;"> Numer mieszkania </h1>
             @Html.TextBoxFor(m => m.FlatNumber, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.FlatNumber)
         </div>
@@ -66,7 +73,7 @@
         </div>
     </div>
 }
-<div class="footerHack" style="margin-bottom:300px;"></div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
