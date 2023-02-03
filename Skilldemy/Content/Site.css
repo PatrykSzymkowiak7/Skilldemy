@@ -204,23 +204,17 @@
     display:none;
 }
 
-.col-md-10{
-    display:none;
-}
-
-.form-control{
-    width:100%;
-    height: 30px;
-}
-
-
+ 
 
 /*
-    hidding ?
+    Registry
 */
 
-.container-body-content{
-    display:none;
+
+    hidding ?
+*/
+.container-body-content {
+    display: none;
 }
 /*
     TOP DIV - image
