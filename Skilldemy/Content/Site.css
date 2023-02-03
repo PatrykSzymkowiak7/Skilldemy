@@ -198,25 +198,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 500px;
 }
  
 .control-label{
     display:none;
 }
 
-.form-control{
-    width:130%;
-    height: 30px;
+.col-md-10{
+    width: 120%;
+    height:30px;
 }
 
 
-
 /*
-    hidding ?
+    Registry
 */
-
-.container-body-content{
-    display:none;
+.container-body-content {
+    display: none;
 }
 /*
     TOP DIV - image

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=188.210.221.82,1433; Initial Catalog=srv46158_skilldemy; User ID=srv46158_skilldemy; Password=Test12345;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Skilldemy\ nightly\\Skilldemy\\Skilldemy\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Skilldemy.Models.ApplicationDbContext-Web.config Connection String" description="Skilldemy.Models.ApplicationDbContext Connection String used in web.config by the application to access the database." defaultValue="Skilldemy.Models.ApplicationDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Skilldemy\ nightly\\Skilldemy\\Skilldemy\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Skilldemy.Models.ApplicationDbContext']/@connectionString" />
+  </parameter>
+</parameters>

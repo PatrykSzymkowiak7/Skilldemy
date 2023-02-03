@@ -1,0 +1,48 @@
+﻿@model Skilldemy.Models.SectionViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
+    ViewBag.Title = "Zarządzaj sekcjami";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("AddSection", "Course", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <br />
+    <div class="form-group">
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.SectionTitle, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.SectionTitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SectionTitle)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SectionDescription, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.SectionDescription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SectionDescription)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.VideoFile, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.VideoFile, new { type = "file" })
+                @Html.ValidationMessageFor(m => m.VideoFile)
+            </div>
+        </div>
+        @Html.HiddenFor(m => m.CourseId)
+    <div class="col-md-offset-2 col-md-10">
+        <a href="@Url.Action("Index", "Manage")">
+            <button class="course-button">Wróć</button>
+        </a>
+        <input type="submit" id="sectionSubmit" class="course-button" value="Dodaj sekcję" />
+    </div>
+    </div>
+}

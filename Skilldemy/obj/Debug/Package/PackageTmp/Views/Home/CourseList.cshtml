@@ -1,0 +1,107 @@
+﻿@model List<Object>
+@using Skilldemy.Models;
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
+}
+<hr />
+@{
+    List<Course> courses = new List<Course>();
+    List<Image> images = new List<Image>();
+    foreach (object obj in Model)
+    {
+        if (obj is List<Course>)
+        {
+            courses = (List<Course>)obj;
+        }
+        else
+        {
+            images = (List<Image>)obj;
+        }
+    }
+}
+<div class="searchBar-course" style="margin-bottom:20px;margin-left:20px;">
+    <b>Sortuj po:</b>
+    <a href="@Url.Action("SortCourses", "Home", new { sortBy = "Popularity" })">
+        <button class="course-button" style="width:100px;margin-right:5px;">Popularne</button>
+    </a>
+    <a href="@Url.Action("SortCourses", "Home", new { sortBy = "Newest" })">
+        <button class="course-button" style="width: 100px; margin-right:5px;">Nowe</button>
+    </a>
+    <a href="@Url.Action("CourseList", "Home")">
+        <button class="course-button" style="width: 100px; margin-right:5px;">Domyślnie</button>
+    </a>
+</div>
+@foreach (var course in courses)
+{
+    string categoryName = String.Empty;
+    switch (course.CategoryId)
+    {
+        case 1:
+            categoryName = "Programowanie";
+            break;
+        case 2:
+            categoryName = "Grafika komputerowa";
+            break;
+        case 3:
+            categoryName = "Biznes";
+            break;
+        case 4:
+            categoryName = "Finanse";
+            break;
+        case 5:
+            categoryName = "Gastronomia";
+            break;
+        case 6:
+            categoryName = "Języki obce";
+            break;
+        default:
+            categoryName = String.Empty;
+            break;
+    }
+    <a href="@Url.Action("CoursePreview", "Course", new { id = course.Id })">
+        <div class="course-box">
+            <div class="course-baner">
+                <div class="course-card">
+                    @{ var courseImage = images.FirstOrDefault(i => i.CourseId == course.Id);
+                        if (courseImage != null)
+                        {
+                            if (courseImage.ImageFile != null)
+                            {
+
+                                <img src='@Url.Action("ShowImage", "Course", new { id = courseImage.Id })' class="course-image-2" />
+
+                            }
+                            else
+                            {
+
+                                <img src="data:image/jpeg;base64" class="course-image-2">
+
+                            }
+                        }
+                        else
+                        {
+
+                            <img src="data:image/jpeg;base64" class="course-image-2">
+
+                        }
+                    }
+                    <div class="course-info-2">
+
+                        @{
+                            <div class="span-kurs"><h3>@course.Title</h3></div>
+                            <div class="span-kurs">@course.Description</div>
+                            <div class="span-kurs">@course.Difficulty</div>
+                            <div class="span-kurs"><p></p><b>@categoryName</b></div>
+                            <div class="span-kurs">@course.Rating <img src="/UserFiles/star.png" class="course-img" /></div>
+                            <div class="span-kurs"><h2>@course.Price zł</h2></div>
+                            //<div class="span-kurs">@course.OwnerUserName</div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <br />
+}

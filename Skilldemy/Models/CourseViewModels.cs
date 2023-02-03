@@ -12,20 +12,20 @@ namespace Skilldemy.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Tytuł")]
+        [Required]
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Opis")]
+        [Required]
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
         public string OwnerId { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Cena")]
+        [Required]
         [Display(Name = "Cena")]
-        [Range(1, 2000, ErrorMessage = "Cena musi być z zakresu od 1 - 2000 zł")]
-        [DataType(DataType.Currency, ErrorMessage = "Pole musi być typu walutowego")]
+        [Range(1, 2000)]
+        [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
@@ -33,15 +33,15 @@ namespace Skilldemy.Models
 
         public DateTime CreatedDate { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Miniaturka")]
+        [Required]
         [Display(Name = "Miniaturka")]
         public HttpPostedFileBase ImageFile { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Wideo prezentujące kurs")]
+        [Required]
         [Display(Name = "Wideo prezentujące kurs")]
         public HttpPostedFileBase PreviewVideoFile { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Wideo Płatne")]
+        [Required]
         [Display(Name = "Wideo Płatne")]
         public HttpPostedFileBase PaidVideoVile { get; set; }
 
@@ -107,7 +107,7 @@ namespace Skilldemy.Models
 
         public string OwnerId { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane - Cena")]
+        [Required]
         [Display(Name = "Cena")]
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
