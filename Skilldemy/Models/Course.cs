@@ -25,7 +25,7 @@ namespace Skilldemy.Models
 
         public string OwnerUserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - Cena")]
         [Display(Name = "Cena")]
         [Range(0, 2000, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią, oraz nie może przekraczać 2000 zł")]
         public decimal Price { get; set; }

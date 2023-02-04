@@ -28,7 +28,7 @@ namespace Skilldemy.Models
     public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Pole {0} musi mieć przynajmniej {2} znaków.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nowe hasło")]
         public string NewPassword { get; set; }
@@ -41,7 +41,7 @@ namespace Skilldemy.Models
 
     public class ChangePasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane - hasło")]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string OldPassword { get; set; }

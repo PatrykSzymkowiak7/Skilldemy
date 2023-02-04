@@ -539,8 +539,11 @@ namespace Skilldemy.Controllers
             {
                 courseRatingSum += cR.Score;
             }
-            if(courseRatingSum != 0 && course.RatingCount != 0)
+            if (courseRatingSum != 0 && course.RatingCount != 0)
+            {
                 course.Rating = courseRatingSum / course.RatingCount;
+                course.Rating = Math.Round(course.Rating, 1);
+            }
 
             _context.SaveChanges();
 
