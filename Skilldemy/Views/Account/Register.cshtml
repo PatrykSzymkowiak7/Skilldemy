@@ -4,91 +4,90 @@
     ViewBag.Title = "Skilldemy";
 }
 
-<h2>Zarejestruj się</h2>
+<div class="register">
+    <div class="register-title">
+        Rejestracja
+    </div>
 
-<h2>Zarejestruj się</h2>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nazwa użytkownika" })
-            @Html.ValidationMessageFor(m => m.UserName)
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nazwa użytkownika" })
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "E-mail" })
-            @Html.ValidationMessageFor(m => m.Email)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "E-mail" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Hasło" })
-            @Html.ValidationMessageFor(m => m.Password)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Hasło" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Potwierdź hasło" })
-            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Potwierdź hasło" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.BankAccountNumber, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.BankAccountNumber, new { @class = "form-control", placeholder = "Numer konta bankowego" })
-            @Html.ValidationMessageFor(m => m.BankAccountNumber)
+        <div class="form-group">
+            @Html.LabelFor(m => m.BankAccountNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.BankAccountNumber, new { @class = "form-control", placeholder = "Numer konta bankowego" })
+                @Html.ValidationMessageFor(m => m.BankAccountNumber)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Town, new { @class = "form-control", placeholder = "Miasto" })
-            @Html.ValidationMessageFor(m => m.Town)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Town, new { @class = "form-control", placeholder = "Miasto" })
+                @Html.ValidationMessageFor(m => m.Town)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control", placeholder = "Kod pocztowy" })
-            @Html.ValidationMessageFor(m => m.PostalCode)
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control", placeholder = "Kod pocztowy" })
+                @Html.ValidationMessageFor(m => m.PostalCode)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Street, new { @class = "form-control", placeholder = "Ulica" })
-            @Html.ValidationMessageFor(m => m.Street)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Street, new { @class = "form-control", placeholder = "Ulica" })
+                @Html.ValidationMessageFor(m => m.Street)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.HouseNumber, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", placeholder = "Numer ulicy" })
-            @Html.ValidationMessageFor(m => m.HouseNumber)
+        <div class="form-group">
+            @Html.LabelFor(m => m.HouseNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", placeholder = "Numer ulicy" })
+                @Html.ValidationMessageFor(m => m.HouseNumber)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.FlatNumber, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FlatNumber, new { @class = "form-control", placeholder = "Numer mieszkania" })
-            @Html.ValidationMessageFor(m => m.FlatNumber)
+        <div class="form-group">
+            @Html.LabelFor(m => m.FlatNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FlatNumber, new { @class = "form-control", placeholder = "Numer mieszkania" })
+                @Html.ValidationMessageFor(m => m.FlatNumber)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="course-button" value="Zarejestruj się"/>
+        <div class="form-group">
+                <input type="submit" class="course-button" value="Zarejestruj się" />
         </div>
-    </div>
-}
+    }
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

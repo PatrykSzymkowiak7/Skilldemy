@@ -5,11 +5,11 @@
     ViewBag.Title = "Skilldemy";
 }
 <br />
-<div class="upperLogin">
-    <img src="~/UserFiles/logoSK/logo_transparent.png" class="upperLoginImg" />
-</div>
 <div class="row">
     <div class="col-md-8">
+        <div class="upperLogin">
+            <img src="~/UserFiles/logoSK/logo_transparent.png" class="upperLoginImg" />
+        </div>
         <section id="loginForm" class="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
