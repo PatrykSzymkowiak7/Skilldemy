@@ -244,7 +244,7 @@
 
 .container-top {
     background-color: #0c0c0c;
-    padding-top: 20px;
+    padding-top: 5px;
     padding-bottom: 20px;
     height: auto;
 }
@@ -271,7 +271,7 @@
 }
 
 .title2 {
-    font-size: 40px;
+    font-size: 35px;
     color: #b1b1b1;
     font-family: cursive;
     font-weight: 700;
@@ -425,7 +425,6 @@
     background-color: #fff;
     width: 100%;
     height: 600px;
-    padding-top: 20px;
 }
 
 
@@ -441,7 +440,6 @@
 
 .container-body-title {
     text-align: center;
-
     margin-bottom: 30px;
     font-family: Verdana;
     font-size: 36px;
@@ -576,79 +574,6 @@
 
 }
 
-/*slider*/
-.slider-container {
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 600px;
-}
-
-.slider {
-    width: 80%;
-    height: 400px;
-    text-align: center;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-.slides {
-    display: flex;
-    overflow-x: scroll;
-    position: relative;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-}
-
-.slide:nth-of-type(even) {
-    background-color: rgb(250, 246, 212);
-}
-
-.slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    width: 100%;
-    height: 400px;
-    margin-right: 0px;
-    box-sizing: border-box;
-    background: white;
-    transform-origin: center center;
-    transform: scale(1);
-    scroll-snap-align: center;
-}
-
-.slide__text {
-    font-size: 40px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
-
-.slide a {
-    position: absolute;
-    top: 48%;
-    width: 35px;
-    height: 35px;
-    border: solid black;
-    border-width: 0 4px 4px 0;
-    padding: 3px;
-    box-sizing: border-box;
-}
-
-a.slide__prev {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    left: 5%;
-}
-
-a.slide__next {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    right: 5%;
-}
 /*
     footer
 */
@@ -769,7 +694,7 @@ footer {
         text-transform: capitalize;
     }
 
-.opinie {
+.opinion {
     margin: 10px;
     padding: 10px;
     border: 1px solid #b1b1b1;
@@ -778,9 +703,12 @@ footer {
     width: 100%;
     font-family: Verdana;
     font-size: 14px;
+    height: 96%;
+    display: flex;
+    align-items: center;
 }
 
-div.opinie:hover {
+.opinion:hover {
     border: 1px solid #777;
 }
 
@@ -815,12 +743,6 @@ div.desc {
     margin-left: 1%;
 }
 
-.opinie {
-    height: 96%;
-    display: flex;
-    align-items: center;
-}
-
 .customer-review {
     margin: auto;
     margin-top: auto;
@@ -849,26 +771,42 @@ div.desc {
     line-height: 1.5;
 }
 
-.inf-kaf1 {
-    width: 48%;
-    height: 98%;
+.opinie {
+    border-radius: 2px;
     float: left;
-    margin-right: 1%;
-    margin-left: 1%;
+    width: 100%;
+    font-family: Verdana;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.inf-kaf1 {
+    background-image: url("/UserFiles/info1.jpg");
+    width: 60%;
+    height: 100%;
+    float: left;
+    color: #fff;
 }
 
 .inf-kaf2 {
-    width: 23%;
-    height: 48%;
+    background-color: lightgray;
+    width: 20%;
+    height: 50%;
     float: left;
-    margin-right: 1%;
-    margin-left: 1%;
+}
+
+.inf-kaf3 {
+    background-image: url("/UserFiles/info3.jpg");
+    width: 20%;
+    height: 50%;
+    float: left;
 }
 
 .course-card {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    padding-left: 15px;
 }
 
 .course-image {
@@ -880,28 +818,28 @@ div.desc {
 }
 
 .course-title {
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .course-description {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
     margin-bottom: 10px;
 }
 
-
-
 .course-button {
     background-color: #343539;
+    border-radius: 4px;
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
     .course-button:hover {
