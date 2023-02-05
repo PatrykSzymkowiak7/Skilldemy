@@ -323,8 +323,8 @@
 
     .photo-body-container .box {
         position: relative;
-        width: 275px;
-        height: 275px;
+        width: 400px;
+        height: 400px;
         background: #fff;
         transition: 0.5s;
         transform-style: preserve-3d;
@@ -438,10 +438,7 @@
 
 .container-body-title {
     text-align: center;
-<<<<<<< Updated upstream
     margin-bottom: 30px;
-=======
->>>>>>> Stashed changes
     font-family: Verdana;
     font-size: 36px;
     color: #383838;
@@ -850,12 +847,9 @@ div.desc {
 }
 
 .course-button {
-<<<<<<< Updated upstream
     background-color: #343539;
     border-radius: 4px;
-=======
     background-color: #383838;
->>>>>>> Stashed changes
     border: none;
     color: white;
     padding: 15px 32px;
