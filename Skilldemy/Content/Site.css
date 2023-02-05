@@ -385,56 +385,53 @@
     height: 600px;
 }
 
-.container-body {
-    width: 100%;
-    height: 600px;
-}
-
-.container-map {
-    height: 100%;
-    width: 55%;
-    display: flex;
-    float: left;
-    flex-direction: column;
-    background-color: #0c0c0c;
-    justify-content: center;
-    padding-left: 150px;
-}
 
 .container-body-bottom {
     background-color: #fff;
     width: 100%;
     height: 500px;
     margin-top: 50px;
-    margin-bottom: 80px;
+    margin-bottom: 130px;
+    padding:20px;
+    border-top-style:solid;
 }
 
+.container-body-title {
+    text-align: center;
 
-
+    margin-bottom: 30px;
+    font-family: Verdana;
+    font-size: 36px;
+}
 /*
     KONTAKT
 */
 
-.container-contact {
-    background-color: #0c0c0c;
+.form-block {
+    width: 100%;
+    height: auto;
     display: flex;
-    flex-direction: column;
-    float: left;
-    height: 100%;
-    width: 45%;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 35px;
+    padding-top: 35px;
+}
+.container-contact {
+    background-color: lightgray;
+    height: 470px;
+    width: 35%;
     text-align: center;
-    padding-top: 100px;
-    padding-right: 150px;
+    align-content: center;
     font-family: Verdana;
+    border-radius:5px;
+    padding-top:15px;
 }
 
     .container-contact p {
-        text-transform: uppercase;
         text-align: center;
         font-size: 36px;
         margin-bottom: 15px;
-        color: #fff;
-        letter-spacing: 2px;
+        color: #343539;
     }
 
 .input-mail {
@@ -520,19 +517,23 @@
 */
 
 .loc-map {
-    width: 80%;
-    height: 80%;
-    -webkit-box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
-    box-shadow: inset 0px 0px 22px 0px rgba(66, 68, 90, 1);
-    border: 5px solid #fff;
-    border-radius: 5px;
-    margin-left: 50px;
+    width: 100%;
+    height: 100%;
+    border-style:none;
+
 }
 
+.container-map {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+
+}
 
 /*slider*/
-
 .slider-container {
     background-color: #fff;
     display: flex;
@@ -639,16 +640,16 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-logo {
-    padding-right: 100px;
+.footer-logo{
+    padding-right:100px;
 }
+
 
 .footer-heading {
     width: 15%;
     display: flex;
     flex-direction: column;
     margin-right: 0px;
-    margin-left: 20px;
     font-size: 14px;
 }
 
@@ -688,11 +689,9 @@ footer {
     }
 
 .socials {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0px;
+   
+    
+    
 }
 
     .socials li {
