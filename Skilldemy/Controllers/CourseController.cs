@@ -51,7 +51,7 @@ namespace Skilldemy.Controllers
             course.CreatedDate = DateTime.Now;
             course.OwnerId = currentUserId;
             course.OwnerUserName = user.UserName;
-            course.Price = createCourseViewModel.Price;
+            course.Price = createCourseViewModel.Price.Value;
             course.Title = createCourseViewModel.Title;
             course.Description = createCourseViewModel.Description;
             course.CategoryId = createCourseViewModel.CategoryId;
@@ -331,7 +331,7 @@ namespace Skilldemy.Controllers
 
             course.OwnerId = currentUserId;
             course.OwnerUserName = user.UserName;
-            course.Price = editCourseViewModel.Price;
+            course.Price = editCourseViewModel.Price.Value;
             course.Title = editCourseViewModel.Title;
             course.Description = editCourseViewModel.Description;
             course.CategoryId = editCourseViewModel.CategoryId;
@@ -470,6 +470,7 @@ namespace Skilldemy.Controllers
                 courseBoughtViewModel.Course = course;
                 courseBoughtViewModel.Videos = videos;
                 courseBoughtViewModel.currentUuid = uuid;
+                entriesCount = entriesCount + 1;
                 courseBoughtViewModel.CourseEntries = 3 - entriesCount;
 
                 if (courseRating != null)
@@ -515,7 +516,7 @@ namespace Skilldemy.Controllers
                 courseRating.Score = score;
                 courseRating.UUID = uuid;
                 _context.CourseRatings.Add(courseRating);
-                course.RatingCount += course.RatingCount;
+                course.RatingCount = course.RatingCount + 1;
                 courseBoughtViewModel.Score = courseRating.Score;
             }
             else

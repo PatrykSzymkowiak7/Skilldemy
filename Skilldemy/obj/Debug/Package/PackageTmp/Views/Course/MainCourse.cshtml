@@ -1,0 +1,134 @@
+﻿@model Skilldemy.Models.CourseBoughtViewModel
+
+@{
+    ViewBag.Title = "Skilldemy";
+    Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
+}
+@{
+    var previewVideo = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
+    var paidVideo = Model.Videos.FirstOrDefault(m => m.IsPaidVideo == true);
+
+}
+
+<div class="main-course-wrapper">
+    <div class="alert alert-success" role="alert" style="text-align: center; width: 1000px; padding-top:30px; padding-bottom:30px; margin-right: auto; margin-top:70px;">
+        <strong>Pozostało ci @Model.CourseEntries kliknięć w link!</strong>
+    </div>
+    @if (paidVideo == null)
+    {
+        <video style="height: 700px; width: 1000px; border: 1px solid; margin-top: 70px;" controls oncontextmenu="return false;" controlsList="nodownload">
+            <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" id="mainVideo" />
+        </video>
+    }
+    else
+    {
+        <video style="height: 700px; width: 1000px; border: 1px solid; margin-top: 30px;" controls oncontextmenu="return false;" controlsList="nodownload">
+            <source src='@Url.Action("ShowVideo", "Course", new { id = paidVideo.Id })' type="video/mp4" id="mainVideo" />
+        </video>
+        <!--<div class="view" style="max-width: 100%; flex-basis: 40%;">
+            <img src="/UserFiles/review_clipart.png" class="img-fluid" alt="smaple image" style="height: 250px; max-width: 100%; position: relative; flex-basis: 40%; margin-left:300px; margin-top:100px;">
+        </div>-->
+        <div class="ocena" style="text-align:center; width:1000px; margin-top:50px;margin-bottom:20px;"><span class="badge badge-pill badge-success" style="font-size:18px;background-color:gray;padding:15px;">Czy jesteś zadowolony z wiedzy zdobytej podczas nauki kursu?<br /> Pomóż innym dokonać wyboru i oceń materiał już teraz!</span></div>
+    }
+    @if (Model.Score == 0)
+    {
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="Bardzo dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 5,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="Dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 4,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="Średni kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 3,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="Słaby kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 2,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="Tragiczny kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 1, uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">1 star</label>
+        </div>
+    }
+    else if (Model.Score == 1)
+    {
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="Bardzo dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 5,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="Dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 4,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="Średni kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 3,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="Słaby kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 2,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" checked />
+            <label for="star1" title="Tragiczny kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 1, uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">1 star</label>
+        </div>
+    }
+    else if (Model.Score == 2)
+    {
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="Bardzo dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 5,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="Dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 4,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="Średni kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 3,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" checked />
+            <label for="star2" title="Słaby kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 2,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="Tragiczny kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 1, uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">1 star</label>
+        </div>
+    }
+    else if (Model.Score == 3)
+    {
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="Bardzo dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 5,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="Dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 4,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" checked />
+            <label for="star3" title="Średni kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 3,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="Słaby kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 2,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="Tragiczny kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 1, uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">1 star</label>
+        </div>
+    }
+    else if (Model.Score == 4)
+    {
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="Bardzo dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 5,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" checked />
+            <label for="star4" title="Dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 4,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="Średni kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 3,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="Słaby kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 2,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="Tragiczny kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 1, uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">1 star</label>
+        </div>
+    }
+    else if (Model.Score == 5)
+    {
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" checked />
+            <label for="star5" title="Bardzo dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 5,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="Dobry kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 4,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="Średni kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 3,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="Słaby kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 2,  uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="Tragiczny kurs" data-action="@Url.Action("ReviewCourse", "Course", new { id = Model.Course.Id, score = 1, uuid = Model.currentUuid,  courseEntries = Model.CourseEntries})">1 star</label>
+        </div>
+    }
+</div>
+<br />
+<br />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $('label').click(function () {
+        var url = $(this).attr('data-action');
+
+        if (url !== undefined)
+            window.location.href = url;
+    });
+</script>

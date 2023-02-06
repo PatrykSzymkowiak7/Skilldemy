@@ -27,7 +27,7 @@ namespace Skilldemy.Models
         [Range(1, 2000, ErrorMessage = "Wartość musi być z zakresu 1 - 2000 zł")]
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         public string HtmlAndJs { get; set; }
 
@@ -112,7 +112,7 @@ namespace Skilldemy.Models
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(1, 2000, ErrorMessage = "Wartość w tym polu musi być liczbą dodatnią, oraz nie może przekraczać 2000 zł")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         public string HtmlAndJs { get; set; }
 

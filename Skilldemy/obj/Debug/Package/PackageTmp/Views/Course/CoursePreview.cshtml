@@ -1,0 +1,58 @@
+﻿@model Skilldemy.Models.CoursePreviewViewModel
+
+@{
+    ViewBag.Title = "Skilldemy";
+    Layout = "~/Views/Shared/_LayoutCourseListView.cshtml";
+}
+@{
+    var previewVideo = Model.Videos.FirstOrDefault(m => m.IsPreviewVideo == true);
+
+}
+
+<div class="main-course-wrapper" style="width:auto;margin-top:50px;">
+    <div class="container my-5 py-5 z-depth-1" style="width:1200px;">
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text" style="margin-top:50px;">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0" style="position:relative; padding-top:20px; text-align:center;">
+                    <div>
+                        <h3 class="font-weight-bold mb-4">@Model.Course.Title</h3>
+                        <p class="text-muted" style="font-size:17px;">
+                            @Model.Course.Description
+                        <p />
+                    </div>
+                    <h3 class="font-weight-bold" style="padding-top:50px;">Wykup dostęp do "@Model.Course.Title"</h3>
+
+                    <p class="text-muted" style="font-size:17px;">
+                        Poniższe wideo jest jedynie pokazowe, aby uzyskać pełeń dostęp do treści należy wykupić abonament do kursu uprawniający do trzykrotnego skorzystania z linku otrzymanego na adres mailowy.
+                    </p>
+                    <a href="@Url.Action("PreparePayment", "Payment", new { courseId = Model.Course.Id, courseName = Model.Course.Title, price = Model.Course.Price })">
+                        <button class="btn btn-success">Wykup dostęp za @Model.Course.Price zł</button>
+                    </a>
+
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <!--Image-->
+                    <div class="view overlay z-depth-1-half">
+                        <img src="/UserFiles/payment_clipart.png" class="img-fluid" alt="smaple image" style="height: 500px; max-width: 100%; position: relative; flex-basis: 40%">
+                    </div>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!--Section: Content-->
+    </div>
+    <video style="height: 700px; width: 1000px; border: 1px solid; margin-top: 70px; margin-left:100px;" controls oncontextmenu="return false;" controlsList="nodownload">
+        <source src='@Url.Action("ShowVideo", "Course", new { id = previewVideo.Id })' type="video/mp4" />
+    </video>
+</div>
+<br />
+<br />
+<br />
