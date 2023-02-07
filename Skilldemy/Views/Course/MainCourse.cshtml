@@ -12,7 +12,24 @@
 
 <div class="main-course-wrapper">
     <div class="alert alert-success" role="alert" style="text-align: center; width: 1000px; padding-top:30px; padding-bottom:30px; margin-right: auto; margin-top:70px;">
-        <strong>Pozostało ci @Model.CourseEntries kliknięć w link!</strong>
+        @{
+            string textClick;
+            if (Model.CourseEntries == 1)
+            {
+                textClick = String.Format("Pozostało ci {0} kliknięcie w link!", Model.CourseEntries);
+            }
+            else if (Model.CourseEntries == 2)
+            {
+                textClick = String.Format("Pozostały ci {0} kliknięcia w link!", Model.CourseEntries);
+            }
+            else
+            {
+                textClick = String.Format("Uwaga to jest twoje ostatnie wejście w kurs, przy ponownej próbie dostęp do kursu będzie zablokowany!");
+            }
+        }
+        <strong>
+            @textClick
+        </strong>
     </div>
     @if (paidVideo == null)
     {
