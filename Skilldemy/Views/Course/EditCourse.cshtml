@@ -14,21 +14,26 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <label for="Title" class="label label-default" style="font-size:13px;">Tytuł kursu</label>
             @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Title)
         </div>
     </div>
+    <br />
     <div class="form-group">
         @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <label for="Description" class="label label-default" style="font-size:13px;">Opis kursu</label>
             @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Description)
         </div>
     </div>
     <br />
+    <br />
     <div class="form-group">
         @Html.LabelFor(m => m.CategoryId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <label for="CategoryId" class="label label-default" style="font-size:13px;">Kategoria</label>
             @Html.DropDownListFor(model => model.CategoryId,
                     new List<SelectListItem> {
                         new SelectListItem { Value = "0" , Text = "-- Wybierz --" },
@@ -42,15 +47,18 @@
             @Html.ValidationMessageFor(m => m.CategoryId)
         </div>
     </div>
+    <br />
     <div class="form-group">
         @Html.LabelFor(m => m.Price, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <label for="Price" class="label label-default" style="font-size:13px;">Cena</label>
             @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @id = "Price" })
             @Html.ValidationMessageFor(m => m.Price)
         </div>
     </div>
     <br />
     <img src='@Url.Action("ShowImage", "Course", new { id = Model.CourseId })' class="course-baner img course-image-2" />
+    <br />
     <div class="form-group">
         @Html.LabelFor(m => m.ImageFile, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
