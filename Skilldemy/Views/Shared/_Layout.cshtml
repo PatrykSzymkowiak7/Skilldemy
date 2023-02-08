@@ -29,7 +29,9 @@
                     <div class="course-info">
                         <h3 class="course-title">Nie przegap szansy na rozwój</h3>
                         <p class="course-description">Sprawdź aktualną ofertę kursów, jakie dla Ciebie przygotowaliśmy. Wybierz szkolenie i zacznij zdobywać nowe umiejętności już teraz.</p>
-                        <button class="course-button">Zobacz ofertę</button>
+                        <a href="@Url.Action("CourseList", "Home")">
+                            <button class="course-button">Zobacz ofertę</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -40,7 +42,9 @@
                     <div class="course-info">
                         <h3 class="course-title">Dołącz do grona twórców</h3>
                         <p class="course-description"></p>
-                        <button class="course-button">Załóż konto</button>
+                        <a href="@Url.Action("Register", "Account")">
+                            <button class="course-button">Załóż konto</button>
+                        </a>
                     </div>
                 </div>
             </div>

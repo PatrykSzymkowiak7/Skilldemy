@@ -4,28 +4,26 @@
     ViewBag.Title = "Skilldemy";
 }
 
-<div class="data-change">
-    <div class="data-change-tiitle">
+<div class="register">
+    <div class="register-title">
         Zmień dane konta
     </div>
-    </div>
-    <div class="password-block">
         @using (Html.BeginForm("Save", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
 
             @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-            <div style="font-size:16px; font-family:Verdana;"> E-mail </div>
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Email)
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <label for="Email" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Adres Email</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
             </div>
-        </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.BankAccountNumber, new { @class = "col-md-2 control-label" })
-                <div style="font-size:16px; font-family:Verdana;"> Numer konta bankowego </div>
+                <label for="BankAccountNumber" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Numer konta bankowego</label>
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.BankAccountNumber, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.BankAccountNumber)
@@ -33,7 +31,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
-                <div style="font-size:16px; font-family:Verdana;"> Miasto </div>
+                <label for="Town" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Miejscowość</label>
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.Town, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Town)
@@ -41,7 +39,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
-                <div style="font-size:16px; font-family:Verdana;"> Kod Pocztowy </div>
+                <label for="PostalCode" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Kod pocztowy</label>
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.PostalCode)
@@ -49,7 +47,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
-                <div style="font-size:16px; font-family:Verdana;"> Ulica </div>
+                <label for="Street" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Ulica</label>
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Street)
@@ -57,7 +55,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.HouseNumber, new { @class = "col-md-2 control-label" })
-                <div style="font-size:16px; font-family:Verdana;"> Numer ulicy </div>
+                <label for="HouseNumber" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Numer domu</label>
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.HouseNumber)
@@ -65,7 +63,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.FlatNumber, new { @class = "col-md-2 control-label" })
-                <div style="font-size:16px; font-family:Verdana;"> Numer mieszkania </div>
+                <label for="Description" class="label label-default" style="font-size:13px; float:left; margin-left:16.7%;">Numer mieszkania</label>
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.FlatNumber, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.FlatNumber)
@@ -82,4 +80,4 @@
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
         }
-    </div>
+ </div>

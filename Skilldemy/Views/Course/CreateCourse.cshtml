@@ -9,8 +9,6 @@
         Dodaj nowy kurs
     </div>
 </div>
-
-<div class="create-block">
     @using (Html.BeginForm("CreateCourse", "Course", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
@@ -55,8 +53,8 @@
         <div class="form-group">
             @Html.LabelFor(m => m.ImageFile, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                <label for="ImageFile" class="label label-default" style="font-size:13px;margin-bottom:15px;">Miniaturka</label>
-                @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @class = "course-button" })
+                <label for="ImageFile" class="label label-default" style="font-size: 13px; margin-bottom: 15px; margin-left: 15%;">Miniaturka</label>
+                @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @class = "course-button", style = "margin-left:15%" })
                 @Html.ValidationMessageFor(m => m.ImageFile)
             </div>
         </div>
@@ -64,8 +62,8 @@
         <div class="form-group">
             @Html.LabelFor(m => m.PreviewVideoFile, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                <label for="PreviewVideoFile" class="label label-default" style="font-size:13px;">Wideo prezentujące kurs</label>
-                @Html.TextBoxFor(m => m.PreviewVideoFile, new { type = "file", @class = "course-button" })
+                <label for="PreviewVideoFile" class="label label-default" style="font-size: 13px; margin-left: 15%;">Wideo prezentujące kurs</label>
+                @Html.TextBoxFor(m => m.PreviewVideoFile, new { type = "file", @class = "course-button", style="margin-left:15%" })
                 @Html.ValidationMessageFor(m => m.PreviewVideoFile)
             </div>
         </div>
@@ -73,8 +71,8 @@
         <div class="form-group">
             @Html.LabelFor(m => m.PaidVideoVile, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                <label for="PaidVideoFile" class="label label-default" style="font-size:13px;">Wideo płatne</label>
-                @Html.TextBoxFor(m => m.PaidVideoVile, new { type = "file", @class = "course-button" })
+                <label for="PaidVideoFile" class="label label-default" style="font-size:13px; margin-left:15%;">Wideo płatne</label>
+                @Html.TextBoxFor(m => m.PaidVideoVile, new { type = "file", @class = "course-button", style = "margin-left:15%" })
                 @Html.ValidationMessageFor(m => m.PaidVideoVile)
             </div>
         </div>
@@ -82,9 +80,9 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10" style="margin:auto; margin-top:20px;">
                 <a href="@Url.Action("Index", "Manage")">
-                    <button class="course-button">Wróć</button>
+                    <button class="course-button" style="margin-left:15%">Wróć</button>
                 </a>
-                <input type="submit" class="course-button" value="Utwórz kurs" />
+                <input type="submit" class="course-button" value="Utwórz kurs"/>
             </div>
         </div>
     }
@@ -92,5 +90,3 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }
-
-</div>

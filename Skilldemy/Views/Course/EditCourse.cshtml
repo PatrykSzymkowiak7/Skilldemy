@@ -14,7 +14,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="Title" class="label label-default" style="font-size:13px;">Tytuł kursu</label>
+            <label for="Title" class="label label-default" style="font-size:13px; margin-left:15%;">Tytuł kursu</label>
             @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Title)
         </div>
@@ -23,8 +23,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="Description" class="label label-default" style="font-size:13px;">Opis kursu</label>
-            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+            <label for="Description" class="label label-default" style="font-size:13px; margin-left:15%;">Opis kursu</label>
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @style = "height:70px;" })
             @Html.ValidationMessageFor(m => m.Description)
         </div>
     </div>
@@ -33,7 +33,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.CategoryId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="CategoryId" class="label label-default" style="font-size:13px;">Kategoria</label>
+            <label for="CategoryId" class="label label-default" style="font-size:13px; margin-left:15%;">Kategoria</label>
             @Html.DropDownListFor(model => model.CategoryId,
                     new List<SelectListItem> {
                         new SelectListItem { Value = "0" , Text = "-- Wybierz --" },
@@ -51,19 +51,19 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Price, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="Price" class="label label-default" style="font-size:13px;">Cena</label>
+            <label for="Price" class="label label-default" style="font-size:13px; margin-left:15%;">Cena</label>
             @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @id = "Price" })
             @Html.ValidationMessageFor(m => m.Price)
         </div>
     </div>
     <br />
-    <img src='@Url.Action("ShowImage", "Course", new { id = Model.CourseId })' class="course-baner img course-image-2" />
+    <img src='@Url.Action("ShowImage", "Course", new { id = Model.CourseId })' class="course-baner img course-image-2" style="margin-left:15%"/>
     <br />
     <div class="form-group">
         @Html.LabelFor(m => m.ImageFile, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="ImageFile" class="label label-default" style="font-size:13px;">Miniaturka</label>
-            @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @class = "course-button", @style = "margin-bottom:50px;" })
+            <label for="ImageFile" class="label label-default" style="font-size:13px; margin-left:15%;">Miniaturka</label>
+            @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @class = "course-button", @style = "margin-bottom:50px; margin-left:15%" })
             @Html.ValidationMessageFor(m => m.ImageFile)
         </div>
     </div>
@@ -71,8 +71,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.PreviewVideoFile, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="PreviewVideoFile" class="label label-default" style="font-size:13px;">Wideo prezentujące kurs</label>
-            @Html.TextBoxFor(m => m.PreviewVideoFile, new { type = "file", @class = "course-button", @style = "margin-bottom:50px;" })
+            <label for="PreviewVideoFile" class="label label-default" style="font-size:13px; margin-left:15%;">Wideo prezentujące kurs</label>
+            @Html.TextBoxFor(m => m.PreviewVideoFile, new { type = "file", @class = "course-button", @style = "margin-bottom:50px; margin-left:15%;" })
             @Html.ValidationMessageFor(m => m.PreviewVideoFile)
         </div>
     </div>
@@ -80,8 +80,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.PaidVideoFile, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="PaidVideoFile" class="label label-default" style="font-size:13px;">Wideo płatne</label>
-            @Html.TextBoxFor(m => m.PaidVideoFile, new { type = "file", @class = "course-button" })
+            <label for="PaidVideoFile" class="label label-default" style="font-size:13px; margin-left:15%;">Wideo płatne</label>
+            @Html.TextBoxFor(m => m.PaidVideoFile, new { type = "file", @class = "course-button", style = "margin-left:15%" })
             @Html.ValidationMessageFor(m => m.PaidVideoFile)
         </div>
     </div>
@@ -90,7 +90,7 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <a href="@Url.Action("MyCourses", "Course")">
-                <button class="course-button">Wróć</button>
+                <button class="course-button" style="margin-left:-2%; margin-top:20px;">Wróć</button>
             </a>
             <input type="submit" class="course-button" value="Zatwierdź" />
         </div>

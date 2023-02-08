@@ -5,18 +5,18 @@
     ViewBag.Title = "Skilldemy";
 }
 
-@using (Html.BeginForm("CreatePayment", "Payment", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <br />
-    <div class="form-group">
+<hr />
+<div class="register">
+    <div class="register-title">
+        Uzupełnij dane płatności
+    </div>
+    @using (Html.BeginForm("CreatePayment", "Payment", FormMethod.Post, new { @class = "form-horizontal", role = "form", encType = "multipart/form-data" }))
+    {
         @Html.AntiForgeryToken()
-        <hr />
         <div class="form-group">
             @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder ="Imię" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Imię" })
                 @Html.ValidationMessageFor(m => m.FirstName)
             </div>
         </div>
@@ -37,11 +37,11 @@
         @Html.HiddenFor(m => m.Crc)
         @Html.HiddenFor(m => m.Description)
         @Html.HiddenFor(m => m.Amount)
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" id="submitPayment" class="course-button" value="Zapłać" style="width:150px;margin-left:50px;" />
+        <div class="form-group">
+            <input type="submit" class="course-button" value="Zapłać" style="margin-top:20px;" />
         </div>
-    </div>
-}
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

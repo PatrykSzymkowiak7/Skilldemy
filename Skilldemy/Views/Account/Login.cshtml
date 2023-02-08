@@ -19,14 +19,14 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nazwa użytkownika" })
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nazwa użytkownika", style = "width:100%" })
                         @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Hasło" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Hasło", style="width:100%" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Zaloguj się" class="course-button" />&nbsp&nbsp
+                        <input type="submit" value="Zaloguj się" class="course-button" style="margin-left:-4%"/>
                     </div>
                 </div>
                 /*
